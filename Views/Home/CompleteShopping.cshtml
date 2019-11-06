@@ -1,0 +1,62 @@
+﻿  @{
+        ViewBag.Title = "Sifariş Et";
+        Layout = "~/Views/Shared/_FrontLayout.cshtml";
+    }
+    @section style{
+
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    }
+    <div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px; border-radius:4px;box-shadow: inset 0 -1px 0 #ccc;padding:40px 0px">
+        <div class="col-md-6 col-xs-12">
+            <h2>ALICI MƏLUMATLARI</h2>
+            <hr style="margin:0 10px 20px 0" />
+            <form method="post" action="@Url.Action("CompleteShopping","Home")">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Adınız</label>
+                        <input type="text" id="inputEmail4" name="OrderName" class="form-control">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Soyadınız</label>
+                        <input type="text" class="form-control" name="SurName">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress2">Ünvan</label>
+                        <input type="text" class="form-control" name="OrderAdress">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Telefon</label>
+                        <input type="tel" class="form-control" name="OrderPhone">
+                    </div>
+                </div>
+                <input type="hidden" name="TotalPrice" value="@ViewBag.TotalPrice" />
+                <div class="form-row">
+
+                    <div style="margin-left:14px" class="g-recaptcha" data-sitekey="6LfM7L8UAAAAAE7DVQvXNtrkG7sHzP_zIimSaJcm"></div>
+                </div>
+                <br />
+                <button class="button-7" style="margin:100px 0 0 14px" type="submit">Sifariş Ver</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="row col-md-offset-2 ">
+                <h2>SİFARİŞ</h2>
+                <div class="checkout-total">
+                    <p style="margin-top:15px">Məbləğ : @ViewBag.TotalPrice</p>
+                    <hr style="margin:0;margin-bottom:15px;" />
+                    <p>Göndərmə haqqı : $ 0.00</p>
+                    <hr style="margin:0;margin-bottom:15px;" />
+                    <p>Cəmi Məbləğ : @ViewBag.TotalPrice</p>
+                </div>
+                <h4 style="margin-top:30px">
+                    Qapıda ödəmə
+                </h4>
+                <hr style="margin:0;margin-bottom:15px;" />
+                <p>
+                    Gold Telecom tərəfindən çatdırılan məshul(lar) üçün ödənişi qapıda edə bilərsiniz.
+                </p>
+            </div>
+        </div>
+    </div>

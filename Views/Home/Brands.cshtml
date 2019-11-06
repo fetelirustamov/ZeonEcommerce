@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Brands>
+
+<div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px;border-radius:4px;box-shadow: inset 0 -1px 0 #ccc; ">
+    <section class="customer-logos slider">
+        @foreach (var item in Model)
+        {
+            <div class="slide"><a href="@Url.Action("Products", "Home", new { brand=item.Name })"><img src="~/@item.Picture?w=300&h=160" alt="brand" /></a></div>
+        }
+
+    </section>
+</div>
+
+<script src="~/Public/Zeon/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+    });
+    </script>

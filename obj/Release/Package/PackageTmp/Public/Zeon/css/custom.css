@@ -1,0 +1,145 @@
+﻿.header .search-form {
+    border-radius: 5px;
+    margin-top: 2px;
+    border: 2px solid #E1E1E1;
+}
+
+.header .search-input {
+    border: 0;
+    padding: 5px;
+    padding-left: 15px;
+    width: 75%;
+}
+
+.header .search-submit {
+    background-color: #E1E1E1;
+    padding: 6px;
+    float: right;
+}
+
+
+
+
+    /*.menu .repsonsive-menu {
+        padding: 12px 30px 10px 25px;
+        background: #191919;
+        font-size: 12px;
+        display: none;
+        line-height: 1.5em;
+        cursor: pointer;
+        color: #fff;
+        vertical-align: top;
+        text-transform: uppercase;
+    }
+
+        .menu .repsonsive-menu i {
+            font-size: 16px;
+            vertical-align: top;
+            padding-right: 5px;
+        }
+
+        .menu .repsonsive-menu:hover {
+            background: #df294b;
+        }*/
+
+
+/*.menu {
+    padding-left: 50px;
+    padding-right:50px;
+    clear: both;
+    background: #FF6000;
+    position: relative;
+    margin-top:-9px;
+}
+
+    .menu > ul {
+        position: relative;
+    }
+
+        .menu > ul > li {
+            list-style: none;
+            text-decoration: none;
+            float: left;
+            font-weight: 300;
+        }
+
+        .menu > ul > li {
+            list-style: none;
+            text-decoration: none;
+            float: left;
+            font-weight: 300;
+        }
+
+            .menu > ul > li > a {
+                color: #fff;
+                font-size: 12px;
+                display: block;
+                padding: 10px 25px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+          .menu > ul > li > a:hover {
+                color: #FF6000;
+                background-color:#fff;
+                font-size: 12px;
+                display: block;
+                padding: 10px 25px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+            .menu > ul > li:hover > ul {
+                display: block;
+            }
+
+            .menu > ul > li > ul {
+                display: none;
+                left: 0px;
+                height: auto;
+                position: absolute;
+                padding: 15px 0 0 15px;
+                width: 1066px;
+                background-color: white;
+            }
+
+                .menu > ul > li > ul a {
+                    color: #484848;
+                    background-color: white;
+                    font-size: 12px;
+                    display: inline;
+                    padding: 5px;
+                    text-decoration: none;
+                }
+
+                .menu > ul > li > ul li {
+                    display: inline;
+                }
+
+                .menu > ul > li > ul > li {
+                    padding: 5px;
+                    margin-left: 10px;
+                    margin-bottom:10px;
+                    float: left;
+                    display: block;
+                    width: 150px;
+                }
+
+                    .menu > ul > li > ul > li > a {
+                        display: block;
+                        font-weight: bold;
+                        color: #FF6000;
+                    }
+
+
+.submenu {
+    width: 150px;
+    line-height: 1.5;
+    float: left;
+    display: inline;
+    padding: 0px;
+}*/
+
+    .submenu > li > a:hover {
+        color: #FF6000;
+    }

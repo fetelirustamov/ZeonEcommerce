@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Categories>
+@{
+    ViewBag.Title = "AddParameterType";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-10 " style="margin-left:110px">
+        <div class="card p-b-20 p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Xüsusiyyət Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form method="post" class="form-horizantal">
+
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label"> Kategoriya</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" name="CategoriesID">
+                                @foreach (var item in Model)
+                                {
+
+                                    <option value="@item.CategoriesId">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Adı</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Xüsusiyyətin Adı" name="Name">
+                        </div>
+                    </div>
+                   
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="upload btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

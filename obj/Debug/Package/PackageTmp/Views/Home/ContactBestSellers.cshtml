@@ -1,0 +1,16 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Products>
+<div class="col-md-12 col-xs-6">
+    <div class="widget">
+        <div class="widget-title">Yeni Məhsullar</div>
+        <ul class="widget-best-seller">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <span class="item-cover"><a href="@Url.Action("ProductDetails", "Home", new { id = item.ProductsId })"><img src="~/@item.Picture" alt="image item" /></a></span>
+                    <span class="item-title"><a href="@Url.Action("ProductDetails", "Home", new { id = item.ProductsId })">Blazer Blue</a></span>
+                    <span class="item-price">₼ @item.Price</span>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

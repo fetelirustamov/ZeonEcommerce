@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.ProductsComments>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card card-data-tables customer-table-wrapper">
+            <header class="card-heading">
+                <h2 class="card-title">Məhsul Rəyləri</h2>
+                <small class="dataTables_info"></small>
+                <ul class="card-actions icons right-top">
+                    <li id="deleteItems" style="display: none;">
+                        <span class="label label-info pull-left m-t-5 m-r-10 text-white"></span>
+                        <a href="javascript:void(0)" id="confirmDelete" data-toggle="tooltip" data-placement="top" data-original-title="Delete Product(s)">
+                            <i class="zmdi zmdi-delete"></i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="orderTable" class="mdl-data-table customer-table m-t-30" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th data-orderable="false" class="col-xs-1">
+                                    <span class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" id="checkAll">
+                                            <span class="checkbox-material"></span>
+                                        </label>
+                                    </span>
+                                </th>
+                                <th class="col-xs-2">Məhsul Adı</th>
+                                <th class="col-xs-3">Rəy</th>
+                                <th class="col-xs-3">Yazan</th>
+                                <th class="col-xs-2">Tarix</th>
+                                <th class="col-xs-2">Əməliyyatlar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="checkbox-cell">
+                                        <span class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" id="">
+                                                <span class="checkbox-material"></span>
+                                            </label>
+                                        </span>
+                                    </td>
+                                    <td>@item.Products.Name </td>
+                                    <td>
+                                        @if (@item.Comment.Length > 100)
+                                        {
+                                            @item.Comment.Substring(1, 50) <span>...</span>
+                                                                                            
+                                        }
+                                        else
+                                        {
+                                            @item.Comment
+                                           
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @if (@item.CustomersID != null)
+                                        {
+                                            @item.Customers.Name
+                                        }
+                                        else if (item.SuppliersID != null)
+                                        {
+                                            @item.Suppliers.Name
+                                        }
+                                    </td>
+                                    <td>@item.CreateTime </td>
+                                    <td>
+                                        <a href="@Url.Action("Delete","ProductsComments",new { id=item.ProductCommentsId})"><i class="zmdi zmdi-delete  zmdi-hc-2x"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

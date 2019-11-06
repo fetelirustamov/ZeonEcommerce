@@ -1,0 +1,76 @@
+﻿@model ZeonEcommerce.Models.Settings
+<div class="footer" style="color:black;background-color:white">
+    <hr />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-xs-6">
+                <h5 style="font-weight:bold;margin-left:8px;">Bizi izləyin</h5>
+                <ul class="socials">
+                    <li><a href="@Model.Facebook"><img src="~/Public/Zeon/images/elements/socials/facebook.png" alt="facebook" />Facebook</a></li>
+                    <li><a href="@Model.Twitter"><img src="~/Public/Zeon/images/elements/socials/twitter.png" alt="twitter" />Twitter</a></li>
+                    <li><a href="@Model.Youtube"><img src="~/Public/Zeon/images/elements/socials/youtube.png" alt="youtube" />Youtube</a></li>
+                    <li><a href="@Model.Google"><img src="~/Public/Zeon/images/elements/socials/googleplus.png" alt="google" />Google+</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <h5 style="font-weight:bold;">Məlumat</h5>
+                <ul>
+                    <li><a href="@Url.Action("AboutUs","Home")">Haqqımızda</a></li>
+                    <li><a href="#">Ən Çox Verilən Suallar</a></li>
+                    <li><a href="@Url.Action("Contact","Home")">Bizimlə Əlaqə</a></li>
+                    <li><a href="#">Faq</a></li>
+                    <li><a href="#">Bloq</a></li>
+                    <li><a href="#">Əməkdaşlıq</a></li>
+                    <li><a href="#">Nə Üçün Biz</a></li>
+                    <li><a href="#">Məxfilik Siyasəti</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <h5 style="font-weight:bold;">Xidmətlərimiz</h5>
+                <ul>
+                    <li><a href="#">Ödəmə Üsulları</a></li>
+                    <li><a href="#">Çatdırılma</a></li>
+                    <li><a href="#">Sifariş Üsulları</a></li>
+                    <li><a href="#">Mənim Sifarişlərim</a></li>
+                    <li><a href="#">Təslimat</a></li>
+                    <li><a href="#">Kömək & Müştəri Xidmətləri</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <h5 style="font-weight:bold;">Alıcılar Üçün</h5>
+                <ul>
+                    <li><a href="#">Hesabım</a></li>
+                    <li><a href="#">Arzu Siyahısı</a></li>
+                    <li><a href="#">Bonus Sistemi</a></li>
+                    <li><a href="#">Zəmanət</a></li>
+                    <li><a href="#">Dəyişdirilmə</a></li>
+                    <li><a href="#">Saytın Xəritəsi</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="subscription" >
+                    <div style="text-transform:uppercase;font-weight:bold;margin:10px;">Abune Olun</div>
+                    <form class="subscription" id="newsletter" method="post" style="margin-bottom:30px">
+                        <input type="text" name="newsletter-name" placeholder="Name" class="subscription-line">
+                        <input type="text" name="newsletter-email" placeholder="E-mail" class="subscription-line">
+                        <button type="submit" style="background-color:#ff6a00;padding:7px 30px;color:white;border-radius:5px;">Göndər</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mini-footer">
+            <div class="row">
+                <div class="col-md-6" style="color:#000;">
+                    Copyright 2013 ZEON &nbsp;  &nbsp; Designed by <span style="font-weight:bold">3 Idiots</span>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-right">
+                        <img src="~/Public/Zeon/images/elements/payment.png" alt="payment systems" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+﻿@model ZeonEcommerce.ViewModel.AdminProduct
+@{
+    ViewBag.Title = "EditProducts";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using ZeonEcommerce.Models;
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Məhsula Düzəliş Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="EditProducts" action="@Url.Action("EditProducts","Products")" method="post" class="form-horizantal" enctype="multipart/form-data">
+                    <input type="hidden" name="ProducsId" value="@Model.Products.ProductsId" />
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" value="@Model.Products.Name" name="Name">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Açıqlama</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="Description" name="Description" value="@Model.Products.Description">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Qiymət</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Price" value="@Model.Products.Price">
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Endirim</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Discont" value="@Model.Products.Discont" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Kategoriya</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" name="CategoriesID">
+
+                                @foreach (Categories item in Model.Categories)
+                                {
+                                    if (Model.Products.CategoriesID == item.CategoriesId)
+                                    {
+                                        <option value="@item.CategoriesId">@item.Name</option>
+                                        continue;
+                                    }
+
+                                    <option value="@item.CategoriesId">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Brend</label>
+                        <div class="col-md-10">
+                            <select class="select form-control " name="BrandsID">
+                                @foreach (Brands item in ViewBag.Brands)
+                                {
+
+                                    if (Model.Products.BrandsID == item.BrandsId)
+                                    {
+                                        <option value="@item.BrandsId">@item.Name</option>
+                                        continue;
+                                    }
+                                    <option value="@item.BrandsId">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group is-empty">
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" name="Picture" multiple>
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" name="Picture" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

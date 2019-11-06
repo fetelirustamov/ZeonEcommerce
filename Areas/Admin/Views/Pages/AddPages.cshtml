@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "AddPages";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-10 " style="margin-left:110px">
+        <div class="card p-b-20 p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Səhifə Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="AddPages" action="@Url.Action("AddPages","Pages")" method="post" class="form-horizantal" enctype="multipart/form-data">
+
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Sehifenin Adı</label>
+                        <div class="col-md-10">
+                            <input id="Name" type="text" class="form-control" placeholder="Sehifenin Adı" name="Name">
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Yazının Başlığı</label>
+                        <div class="col-md-10">
+                            <input id="Title" type="text" class="form-control" name="Title" placeholder="Yazının Başlığı">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Sıra Nömrəsi</label>
+                        <div class="col-md-10">
+                            <input id="RowNo" type="number" class="form-control" name="RowNo" placeholder="Sıra Nömrəsi">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Url</label>
+                        <div class="col-md-10">
+                            <input id="Url" type="number" class="form-control" name="Url" placeholder="Səhifə Url-si">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label">Məzmun</label>
+                        <div class="col-md-10">
+                            <textarea id="Content" class="form-control" name="PageContent" placeholder="Məzmun"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" id="Picture" class="form-control" name="Picture">
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" placeholder="Şəkil Yüklə" name="Picture">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="upload btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

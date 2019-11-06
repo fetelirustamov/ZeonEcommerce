@@ -1,0 +1,480 @@
+﻿@model ZeonEcommerce.App_Classes.Cart
+@{
+    ViewBag.Title = "Sifariş Et";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+@section style{
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/vendor.bundle.css">
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/app.bundle.css">
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/theme-a.css">
+    <style>
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+}
+
+
+<div id="app_wrapper">
+    <section id="content_outer_wrapper" style="padding:0px;">
+        <div id="content_wrapper" style="padding:0px;" class="card-overlay">
+            <div id="content" class="container">
+                <div class="content-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card" id="rootwizard">
+                                <div class="card-heading" style="background-color:#ffd800">
+                                    <form class="form floating-label">
+                                        <div class="form-wizard-nav">
+                                            <div class="progress" style="width: 75%;">
+                                                <div class="progress-bar" style="width:0%;"></div>
+                                            </div>
+                                            <ul class="nav nav-justified nav-pills">
+                                                <li class="active"><a href="#tab1" data-toggle="tab" aria-expanded="true" class="disabled"><span class="step">1</span> <span class="title">Səbətim</span></a></li>
+                                                <li class=""><a href="#tab2" data-toggle="tab" aria-expanded="false" class="disabled"><span class="step">2</span> <span class="title">Çatdırılma</span></a></li>
+                                                <li class=""><a href="#tab3" data-toggle="tab" aria-expanded="false" class="disabled"><span class="step">3</span> <span class="title">Ödəmə</span></a></li>
+                                                <li class=""><a href="#tab4" data-toggle="tab" aria-expanded="false" class="disabled"><span class="step">4</span> <span class="title">Təstiqlə</span></a></li>
+                                            </ul>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="form-wizard form-wizard-horizontal">
+                                        <div class="tab-content clearfix p-30">
+                                            <div class="tab-pane active" id="tab1">
+                                                @if (Session["CurrentUser"] != null)
+                                                {
+
+                                                    <div class="table-responsive border-grey-bottom-1px m-b-20">
+                                                        <table class="table table-hover product-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Şəkil</th>
+                                                                    <th>Açqlama</th>
+                                                                    <th>Sayı</th>
+                                                                    <th>Qiyməti</th>
+                                                                    <th>Ümumi Qiymet</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{ decimal total = 0;}
+                                                                @foreach (ZeonEcommerce.Models.Basket item in ViewBag.Basket)
+                                                                {
+                                                                    <tr>
+                                                                        <th><img src="~/@item.Products.Picture?w=150&h=150" alt="" class="img-thumbnail"></th>
+                                                                        <td>
+                                                                            <span class="block">@item.Products.Name</span>
+                                                                            <span class="block"><strong>Size:</strong> Large</span>
+                                                                            <span class="block"><strong>Color:</strong> Tri-Blend Vintage Royal</span>
+                                                                            <span class="block"><strong>SKU:</strong> #203004</span>
+                                                                        </td>
+                                                                        <td>@item.Quantity</td>
+                                                                        <td>$@item.Products.Price</td>
+                                                                        <td>$@{var totalPrice = item.Quantity * item.Products.Price; total +=totalPrice;} @totalPrice</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-11 text-right ">
+                                                            <span class="block p-b-5">Məhsulların Qiyməti: </span>
+                                                            <span class="block p-b-5">Çatdırılma: </span>
+                                                            <span class="block p-b-5 p-t-5">Cəmi Qiymət:</span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-1 p-0">
+                                                            <span class="block p-b-5">$@ViewBag.TotalPrice</span>
+                                                            <span class="block p-b-5">$0</span>
+                                                            <span class="block p-b-5 cart-total">$@ViewBag.TotalPrice</span>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model != null)
+                                                {
+                                                    <div class="table-responsive border-grey-bottom-1px m-b-20">
+                                                        <table class="table table-hover product-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Şəkil</th>
+                                                                    <th>Açqlama</th>
+                                                                    <th>Sayı</th>
+                                                                    <th>Qiyməti</th>
+                                                                    <th>Ümumi Qiymet</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in Model.Products)
+                                                                {
+
+                                                                    <tr>
+                                                                        <th><img src="~/@item.Product.Picture?width=150&height=150" alt="" class="img-thumbnail"></th>
+                                                                        <td>
+                                                                            <span class="block">@item.Product.Name</span>
+                                                                            <span class="block"><strong>Size:</strong> Large</span>
+                                                                            <span class="block"><strong>Color:</strong> Tri-Blend Vintage Royal</span>
+                                                                            <span class="block"><strong>SKU:</strong> #203004</span>
+                                                                        </td>
+                                                                        <td>@item.Quantity</td>
+                                                                        <td>$@item.Product.Price</td>
+                                                                        <td>$@item.UnitPrice ###@ViewBag.Last</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-11 text-right ">
+                                                            <span class="block p-b-5">Məhsulların Qiymıti:</span>
+                                                            <span class="block p-b-5">Çatdırılma:</span>
+                                                            <span class="block p-b-5 p-t-5">Cəmi Qiymət:</span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-1 p-0">
+                                                            <span class="block p-b-5">$@Model.Products.Sum(x => x.UnitPrice)</span>
+                                                            <span class="block p-b-5">$0</span>
+                                                            <span class="block p-b-5 cart-total">$@Model.Products.Sum(x => x.UnitPrice)</span>
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </div>
+                                          
+                                            <!--end #tab1 -->
+                                            <div class="tab-pane" id="tab2">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Adınız</label>
+                                                            <input type="text" id="Name" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Emailiniz</label>
+                                                            <input type="text" id="Email" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Şəhər</label>
+                                                            <input type="text" id="City" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Ünvan</label>
+                                                            <input type="text" id="Adress" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Poçt Kodu</label>
+                                                            <input type="number" id="PostCode" class="form-control" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group label-floating is-empty">
+                                                            <label class="control-label">Telefon</label>
+                                                            <input type="tel" id="Phone" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end #tab2 -->
+                                            <div class="tab-pane" id="tab3">
+                                                <form class="form-horizontal" role="form">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group label-floating is-empty">
+                                                                <label class="control-label">Kartdakı Adı</label>
+                                                                <input type="text" class="form-control" id="CardName" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group label-floating is-empty">
+                                                                <label class="control-label">Kartdakı Soyadı</label>
+                                                                <input type="text" class="form-control" name="card-holder-name" id="CardSurName" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <div class="form-group label-floating is-empty">
+                                                                <label class="control-label">Kartın Nömrəsi</label>
+                                                                <input type="text" class="form-control" name="card-holder-name" id="CardNumber" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-6">
+                                                            <h4>Biz Qəbul Edirik:</h4>
+                                                            <ul class="style-none list-inline">
+                                                                <li><img src="~/Public/Admin/assets/img/icons/cc/visa.png" alt="" /></li>
+                                                                <li><img src="~/Public/Admin/assets/img/icons/cc/mastercard.png" alt="" /></li>
+                                                                <li><img src="~/Public/Admin/assets/img/icons/cc/discover.png" alt="" /></li>
+                                                                <li><img src="~/Public/Admin/assets/img/icons/cc/american-express.png" alt="" /></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-4">
+                                                            <div class="form-group label-floating is-empty">
+                                                                <label class="control-label">CVC Nömrəsi</label>
+                                                                <input type="number" class="form-control" name="card-holder-name" id="Cvc" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control select" name="expiry-month" id="Month" required>
+                                                                            <option>Ay</option>
+                                                                            <option value="01">Jan (01)</option>
+                                                                            <option value="02">Fev (02)</option>
+                                                                            <option value="03">Mar (03)</option>
+                                                                            <option value="04">Apr (04)</option>
+                                                                            <option value="05">May (05)</option>
+                                                                            <option value="06">İyun (06)</option>
+                                                                            <option value="07">İyul (07)</option>
+                                                                            <option value="08">Avg (08)</option>
+                                                                            <option value="09">Sen (09)</option>
+                                                                            <option value="10">Okt (10)</option>
+                                                                            <option value="11">Noy (11)</option>
+                                                                            <option value="12">Dek (12)</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control select" name="Year" id="Year">
+
+                                                                            <option value="2019">2019</option>
+                                                                            <option value="2020">2020</option>
+                                                                            <option value="2021">2021</option>
+                                                                            <option value="2022">2022</option>
+                                                                            <option value="2023">2023</option>
+                                                                            <option value="2024">2024</option>
+                                                                            <option value="2025">2025</option>
+                                                                            <option value="2026">2026</option>
+                                                                            <option value="2027">2027</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!--end #tab3 -->
+                                            <div class="tab-pane" id="tab4">
+                                                <div class="p-t-20">
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-6">
+                                                            <h4 class="p-b-10 border-grey-bottom-1px">Sizin Məlumatlarınız</h4>
+                                                            <ul class="style-none">
+                                                                <li>Paula Gomez</li>
+                                                                <li>paula-go1023@gmail.com</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-6">
+                                                            <h4 class="p-b-10 border-grey-bottom-1px">Payment</h4>
+                                                            <ul class="style-none list-inline">
+                                                                <li><img src="~/Public/Admin/assets/img/icons/cc/visa.png" alt="" class="pull-left m-r-15" /></li>
+                                                            </ul>
+                                                            <p>Visa Card ending in 1234</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-6">
+                                                            <h4 class="p-b-10 p-t-10 border-grey-bottom-1px">Çatdırılma Adresi</h4>
+                                                            <ul class="style-none">
+                                                                <li>Paula Gomez</li>
+                                                                <li>1600 Amphitheatre Parkway</li>
+                                                                <li>Mountain View, CA 94043</li>
+                                                                <li>Phone: +1 650-253-0000</li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-6">
+                                                            <h4 class="p-b-10 p-t-10 border-grey-bottom-1px">Billing Address</h4>
+                                                            <ul class="style-none">
+                                                                <li>Paula Gomez</li>
+                                                                <li>1600 Amphitheatre Parkway</li>
+                                                                <li>Mountain View, CA 94043</li>
+                                                                <li>Phone: +1 650-253-0000</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @if (Session["CurrentUser"] != null)
+                                                {
+                                                    <div class="table-responsive border-grey-bottom-1px m-b-20">
+                                                        <table class="table table-hover product-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Şəkil</th>
+                                                                    <th>Açqlama</th>
+                                                                    <th>Sayı</th>
+                                                                    <th>Qiyməti</th>
+                                                                    <th>Ümumi Qiymet</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{ decimal total = 0;}
+                                                                @foreach (ZeonEcommerce.Models.Basket item in ViewBag.Basket)
+                                                                {
+                                                                    <tr>
+                                                                        <th><img src="~/@item.Products.Picture?w=150&h=150" alt="" class="img-thumbnail"></th>
+                                                                        <td>
+                                                                            <span class="block">@item.Products.Name</span>
+                                                                            <span class="block"><strong>Size:</strong> Large</span>
+                                                                            <span class="block"><strong>Color:</strong> Tri-Blend Vintage Royal</span>
+                                                                            <span class="block"><strong>SKU:</strong> #203004</span>
+                                                                        </td>
+                                                                        <td>@item.Quantity</td>
+                                                                        <td>$@item.Products.Price</td>
+                                                                        <td>$@{var totalPrice = item.Quantity * item.Products.Price; total += totalPrice;} @totalPrice</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-11 text-right ">
+                                                            <span class="block p-b-5">Məhsulların Qiyməti: </span>
+                                                            <span class="block p-b-5">Çatdırılma: </span>
+                                                            <span class="block p-b-5 p-t-5">Cəmi Qiymət:</span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-1 p-0">
+                                                            <span class="block p-b-5">$@ViewBag.TotalPrice</span>
+                                                            <span class="block p-b-5">$0</span>
+                                                            <span class="block p-b-5 cart-total">$@ViewBag.TotalPrice</span>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else if (Model != null)
+                                                {
+                                                    <div class="table-responsive border-grey-bottom-1px m-b-20">
+                                                        <table class="table table-hover product-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Şəkil</th>
+                                                                    <th>Açqlama</th>
+                                                                    <th>Sayı</th>
+                                                                    <th>Qiyməti</th>
+                                                                    <th>Ümumi Qiymet</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach (var item in Model.Products)
+                                                                {
+                                                                    <tr>
+                                                                        <th><img src="~/@item.Product.Picture?width=150&height=150" alt="" class="img-thumbnail"></th>
+                                                                        <td>
+                                                                            <span class="block">@item.Product.Name</span>
+                                                                            <span class="block"><strong>Size:</strong> Large</span>
+                                                                            <span class="block"><strong>Color:</strong> Tri-Blend Vintage Royal</span>
+                                                                            <span class="block"><strong>SKU:</strong> #203004</span>
+                                                                        </td>
+                                                                        <td>@item.Quantity</td>
+                                                                        <td>$@item.Product.Price</td>
+                                                                        <td>$@item.UnitPrice</td>
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-xs-6 col-sm-11 text-right ">
+                                                            <span class="block p-b-5">Məhsulların Qiymıti:</span>
+                                                            <span class="block p-b-5">Çatdırılma:</span>
+                                                            <span class="block p-b-5 p-t-5">Cəmi Qiymət:</span>
+                                                        </div>
+                                                        <div class="col-xs-6 col-sm-1 p-0">
+                                                            <span class="block p-b-5">$@Model.Products.Sum(x => x.UnitPrice)</span>
+                                                            <span class="block p-b-5">$0</span>
+                                                            <span class="block p-b-5 cart-total">$@Model.Products.Sum(x => x.UnitPrice)</span>
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <ul class="pager wizard">
+                                        <li class="previous disabled"><a class="btn btn-primary btn-round" href="javascript:void(0);">Geri</a></li>
+                                        <li class="next"><a class="btn btn-primary btn-round" href="javascript:void(0);">Sonrakı</a></li>
+                                        <li class="finish"><button class="btn btn-green btn-round pull-right" id="Ship">Sifariş Ver</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section script{
+    <script src="~/Public/Admin/assets/js/vendor.bundle.js"></script>
+    <script src="~/Public/Admin/assets/js/app.bundle.js"></script>
+}
+
+<script>
+
+    jQuery(document).ready(function () {
+        $("#Ship").on("click", function () {
+            var formData1 = new FormData();
+            formData1.append("Name", $("#CardName").val());
+            formData1.append("SurName", $("#CardSurName").val());
+            formData1.append("CardNumber", $("#CardNumber").val());
+            formData1.append("Cvc", $("#Cvc").val());
+            formData1.append("Month", $("#Month").val());
+            formData1.append("Year", $("#Year").val());
+
+            $.ajax({
+                type: "POST",
+                url: "/Home/OrdersCard",
+                data: formData1,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function () {
+
+                    window.location.href = '/home/complateshopping';
+                },
+                error: function () {
+                    alert("Xeta!!");
+                }
+            });
+            var formData = new FormData();
+            formData.append("ShipName", $("#Name").val());
+            formData.append("ShipEmail", $("#Email").val());
+            formData.append("ShipCity", $("#City").val());
+            formData.append("ShipAdress", $("#Adress").val());
+            formData.append("ShipPostCode", $("#PostCode").val());
+            formData.append("ShipPhone", $("#Phone").val());
+            $.ajax({
+                type: "POST",
+                url: "/Home/Order",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function () {
+
+                    window.location.href = '/home/complateshopping';
+                },
+                error: function () {
+                    alert("Xeta!!");
+                }
+            });
+
+        });
+    });
+</script>

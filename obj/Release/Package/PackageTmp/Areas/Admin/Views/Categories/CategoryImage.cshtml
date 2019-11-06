@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "CategoryImage";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Kategoriyaya Şəkil Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="AddPicture" method="post" class="form-horizantal" enctype="multipart/form-data">
+                    <input id="CategoriesID" type="hidden" value="@ViewBag.CategoriesID">
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" id="Picture">
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("form#AddPicture").submit(function myfunction() {
+            var formData = new FormData();
+            var fileInput = document.getElementById("Picture").files[0];
+            formData.append("Picture", fileInput);
+            formData.append("CategoriesID", $("#CategoriesID").val());
+            $.ajax({
+                type: "POST",
+                url: "/api/Images",
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                success: function () {
+
+                    window.location.href = '/Admin/Categories/';
+                },
+                error: function () {
+                    alert("Xeta!!");
+                }
+            });
+
+        });
+    });
+</script>
+

@@ -1,0 +1,53 @@
+﻿@model ZeonEcommerce.Models.Brands
+@{
+    ViewBag.Title = "Add Brands";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Brend Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="AddBrands" action="@Url.Action("AddBrands","Brands")" method="post" class="form-horizantal" enctype="multipart/form-data">
+                    
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Brend Adı</label>
+                        <div class="col-md-10">
+                            <input name="Name" type="text" class="form-control" placeholder="Brend Adı">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Açıqlaması</label>
+                        <div class="col-md-10">
+                            <input name="Description" type="text" class="form-control" placeholder="Brendin Açıqlaması">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" name="Picture">
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

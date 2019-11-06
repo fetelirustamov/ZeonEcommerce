@@ -1,0 +1,116 @@
+﻿@model ZeonEcommerce.ViewModel.AdminProduct
+@{
+    ViewBag.Title = "AddProducts";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using ZeonEcommerce.Models;
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Məhsul Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form method="post" action="@Url.Action("AddProducts","Products")" class="form-horizantal" enctype="multipart/form-data">
+
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Məhsul Adı</label>
+                        <div class="col-md-10">
+                            <input name="Name" type="text" class="form-control" placeholder="Məhsul Adı" >
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Açıqlama</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Description" class="form-control" placeholder="Açıqlama">
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Qiymət</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Price" class="form-control"  placeholder="Qiyməti">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Sayı</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Stock" class="form-control"  placeholder="Sayı">
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Endirim</label>
+                        <div class="col-md-10">
+                            <input type="text" name="Discont" class="form-control" placeholder="Endirim" />
+                        </div>
+                    </div>
+
+
+                    <input type="hidden" name="CreateTime" class="form-control"  value="@DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")" />
+
+
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label">Kategoriya</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" name="CategoriesID">
+
+                                @foreach (Categories item in Model.Categories)
+                                {
+
+                                    <option value="@item.CategoriesId">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label">Brend</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" name="BrandsID">
+
+                                @foreach (Brands item in Model.Brands)
+                                {
+
+                                    <option value="@item.BrandsId">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" name="Picture">
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary upload">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

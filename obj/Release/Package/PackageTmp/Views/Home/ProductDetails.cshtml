@@ -1,0 +1,203 @@
+﻿@model ZeonEcommerce.Models.Products
+@{
+    /**/
+
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+    var user = Session["CurrentUser"] as ZeonEcommerce.Models.Customers;
+}
+
+<div class="modal fade" id="write-review" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-review">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Rəy Bildirin</h3>
+            <form action="@Url.Action("AddProductComments","Home")" id="AddProductComment" method="post">
+                <p>
+                    Adınız : @if (user != null)
+                    {
+
+                        <span>@user.Name;</span>
+
+                    }
+                </p>
+                <input type="hidden" id="ProductsID" name="ProductsID" value="@Model.ProductsId" />
+                <input type="hidden" id="CreateTime" name="CreateTime" value="@DateTime.Now" />
+
+                <input type="hidden" name="CustomersID" id="CustomersID" value="@Session["CurrentUserId"]" />
+                <p>Rəyiniz</p>
+                <textarea class="text-area" id="Comment" name="Comment"></textarea>
+                <button type="submit" class="button-6">Rəy bildir</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="product-one">
+    <div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="the-slider product-big-image" data-tesla-plugin="slider" data-tesla-item=".slide" data-tesla-next=".product-image-arrows-right" data-tesla-prev=".product-image-arrows-left" data-tesla-container=".slide-wrapper">
+                    <ul class="product-image-arrows">
+                        <li class="product-image-arrows-left"><i class="icon-517" title="left"></i></li>
+                        <li class="product-image-arrows-right"><i class="icon-501" title="right"></i></li>
+                    </ul>
+                    <ul class="slide-wrapper">
+                        @if (Model.Images != null)
+                        {
+
+
+                            foreach (var item in Model.Images)
+                            {
+                                <li class="slide" style="height:500px"><img src="~/@item.ProductSlider?w=500&h=500" alt="product image" /></li>
+
+                            }
+                            
+                        }
+
+                    </ul>
+                    <div class="row">
+                        <ul class="the-bullets-dots" data-tesla-plugin="bullets">
+                            @foreach (var item in Model.Images)
+                            {
+                                <li><div class="col-md-2 col-xs-2"><img src="~/@item.ProductSlider?w=500&h=500" alt="product image" /></div></li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>@Model.Name</h2>
+                <div class="product-rate">
+                    <i class="icon-423" title="full"></i>
+                    <i class="icon-423" title="full"></i>
+                    <i class="icon-423" title="full"></i>
+                    <i class="icon-423" title="full"></i>
+                    <i class="icon-421" title="empty"></i>
+                </div>
+                <div class="sort-dropdown">
+                    <span>Size <i class="icon-515" title="515"></i></span>
+                    <ul>
+                        <li><a href="#">XS</a></li>
+                        <li><a href="#">S</a></li>
+                        <li><a href="#">M</a></li>
+                        <li><a href="#">L</a></li>
+                        <li><a href="#">XL</a></li>
+                        <li><a href="#">XXL</a></li>
+                        <li><a href="#">XXXL</a></li>
+                    </ul>
+                </div>
+                <div class="quantity">
+                    <input type="button" value="-" class="minus">
+                    <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text ">
+                    <input type="button" value="+" class="plus">
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-price">Qiyməti :  @Model.Price  ₼</div>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="avascript:void(0)" class="button-2-out button-2 AddToCart" data-id="@Model.ProductsId">Səbətə Əlavə Et</a>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#description" data-toggle="tab">Açıqlama</a></li>
+                    <li class=""><a href="#reviews" data-toggle="tab">Rəylər</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="description">
+                        <p>@Model.Description</p>
+                        <ul class="product-details">
+                            <li>Category - @Model.Categories.Name</li>
+                        </ul>
+                        <ul class="social-share">
+                            <li><span>Paylaş</span></li>
+                            <li><a href="#"><i class="icon-160" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-138" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-106" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-169" title="161"></i></a></li>
+                            <li><a href="#"><i class="icon-163" title="161"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" id="reviews">
+                        @foreach (var item in Model.ProductsComments)
+                        {
+
+                            <div class="product-review">
+                                <div class="product-review-avatar">
+                                    <img src="~/Public/Zeon/images/elements/testimonial-avatar.jpg" alt="avatar" />
+                                </div>
+                                @if (item.SuppliersID != null)
+                                {
+                                    <div class="product-review-author">@item.Suppliers.Name <span>@DateTime.Now.ToString("dd MMMM")</span></div>
+                                }
+                                @if (item.CustomersID != null)
+                                {
+                                    <div class="product-review-author">@item.Customers.Name <span>@item.CreateTime.ToString("dd MMMM")</span></div>
+                                }
+
+
+                                <p>@item.Comment</p>
+                            </div>
+
+                        }
+                        @if (Session["CurrentUser"] != null)
+                        {
+                            <a href="#" class="button-9" data-toggle="modal" data-target="#write-review">Rəy Bildirin</a>
+                        }
+                        else
+                        {
+                            <div style="padding-left:30px;padding-bottom:20px">
+                                <span>Rəy yazmaq üçün</span> <a href="/Giriş-Qeydiyyat" style="color:#ff6a00;">daxil olun</a>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{Html.RenderAction("NewProducts", "Home");}
+
+@section script{
+    <script>
+        $(document).ready(function myfunction() {
+            $(".button-2").mouseleave(function () {
+                $(this).addClass('button-2-out');
+            });
+
+            $(".button-2").mouseout(function () {
+                $(this).addClass('button-2-out');
+            });
+
+        });
+    </script>
+    <script>
+        $(document).ready(function myfunction() {
+            $(".AddToCart").click(function myfunction() {
+                var pId = $(this).attr("data-id");
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/AddCart",
+                    data: { id: pId },
+                    success: function myfunction() {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/MiniCartWidget",
+                            success: function myfunction(data) {
+                                $(".cart-all").html("");
+                                $(".cart-all").html(data);
+                            }
+                        })
+                    },
+                    error: function myfunction() {
+                        alert("Error")
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model ZeonEcommerce.Models.Rols
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Rol Əlavə et və ya Yenilə</h2>
+
+            </header>
+            <div class="card-body card-container">
+                @using (Html.BeginForm("AddOrEdit", "Rols", FormMethod.Post, new { @class = "form-horizantal" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(model => model.RolsId)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Kategoriya Adı", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { placeholder = "Kategoriya Açıqlaması", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

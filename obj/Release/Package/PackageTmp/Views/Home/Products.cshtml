@@ -1,0 +1,184 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Products>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+    var category = ViewBag.CategoryOne as ZeonEcommerce.Models.Categories;
+}
+
+<div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px; padding:20px;padding-bottom:40px;">
+    @*<div class="all-products-details">
+        <div class="row">
+            <div class="col-md-7"><h2>Categories</h2></div>
+            <div class="col-md-5">
+                <div class="sort-dropdown float-right">
+                    <span>Deafult sorting <i class="icon-515" title="515"></i></span>
+                    <ul>
+                        <li><a href="#">Cost low to high</a></li>
+                        <li><a href="#">Cost hight to low</a></li>
+                        <li><a href="#">Sales low to high</a></li>
+                        <li><a href="#">Sales high to low</a></li>
+                        <li><a href="#">Top low to high</a></li>
+                        <li><a href="#">Top high to low</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>*@
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12 col-xs-6">
+                    <div class="products-dropdown open-dropdown">
+                        <span><i class="icon-515" title="515"></i>@category.Name</span>
+                        <ul>
+                            @foreach (ZeonEcommerce.Models.Categories item in ViewBag.Category)
+                            {
+
+                            <li><a href="@Url.Action("Products", "Home", new { c =item.Name })">@item.Name</a></li>
+                            }
+
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-md-12 col-xs-6">
+                    <div class="products-dropdown">
+                        <span>Brands</span>
+                        <ul>
+                           @foreach (ZeonEcommerce.Models.Brands item in ViewBag.Brands)
+                           {
+                            <li><a href="#">@item.Name</a></li>
+                           }
+                        </ul>
+                        <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                
+                @*<div class="col-md-12 col-xs-6">
+                    <div class="products-dropdown">
+                        <span>Color</span>
+                        <ul>
+                            <li><a href="#">Red</a></li>
+                            <li><a href="#">Blue</a></li>
+                            <li><a href="#">Violet</a></li>
+                            <li><a href="#">Dark blue</a></li>
+                            <li><a href="#">Yellow</a></li>
+                            <li><a href="#">White</a></li>
+                            <li><a href="#">Black</a></li>
+                            <li><a href="#">Orange</a></li>
+                            <li><a href="#">Gray</a></li>
+                        </ul>
+                        <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-6">
+                    <div class="products-dropdown">
+                        <span>Size</span>
+                        <ul>
+                            <li><a href="#">XS</a></li>
+                            <li><a href="#">S</a></li>
+                            <li><a href="#">M</a></li>
+                            <li><a href="#">L</a></li>
+                            <li><a href="#">XL</a></li>
+                            <li><a href="#">XXL</a></li>
+                            <li><a href="#">XXXL</a></li>
+                        </ul>
+                        <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-md-3 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <img src="~/@item.Picture?w=190&h=190" alt="product name" />
+                            </div>
+                            <div class="p-details">
+                                <h4>
+                                    <a href="@Url.Action("ProductDetails", "Home", new { id = item.ProductsId })">
+                                        @{
+                                            string name = "";
+                                            if (item.Name.Length > 40)
+                                            {
+                                                name = item.Name.Substring(0, 40) + "...";
+
+                                            }
+                                            else
+                                            {
+                                                name = item.Name;
+                                            }
+                                        } <span>@name</span>
+                                    </a>
+                                </h4>
+                                @if (item.Discont != null && item.Discont != 0)
+                                {
+                                    <div class="product-discont"><div class="discont">%@item.Discont</div></div>
+                                    <div style="width:60%" class="product-price">
+                                        <i class="icon-257" title="Səbətə at"></i>
+                                        <p style="font-size:14px;">
+                                            <span style="text-decoration-line: line-through; ">@item.Price.ToString("C2")</span><br />
+                                            @{var price = (decimal)(item.Price - (item.Price * item.Discont) / 100);}@price.ToString("C2")
+                                        </p>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div style="width:92%;padding-top:4px;" class="product-price">
+                                        <i style="margin-bottom: -1px;" class="icon-257" title="Səbətə at"></i>
+                                        <p >@item.Price.ToString("C2")</p>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <ul class="page-numbers">
+                <li><span class="page-numbers current">1</span> /</li>
+                <li><a class="page-numbers" href="#">2</a> /</li>
+                <li><a class="page-numbers" href="#">3</a> /</li>
+                <li><a class="page-numbers" href="#">4</a> /</li>
+                <li><a class="page-numbers" href="#">5</a> /</li>
+                <li><a class="next page-numbers" href="#">→</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function myfunction() {
+        $(".AddToCart").click(function myfunction() {
+            var pId = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/AddCart",
+                data: { id: pId },
+                success: function myfunction() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Home/MiniCartWidget",
+                        success: function myfunction(data) {
+                            $(".cart-all").html("");
+                            $(".cart-all").html(data);
+                        }
+                    })
+                },
+                error: function myfunction() {
+                    alert("Error")
+                }
+            });
+        });
+    });
+</script>

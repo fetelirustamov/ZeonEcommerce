@@ -1,0 +1,53 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>MaterialWrap - jQuery full version</title>
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/vendor.bundle.css">
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/app.bundle.css">
+    <link rel="stylesheet" href="~/Public/Admin/assets/css/theme-a.css">
+</head>
+<body id="auth_wrapper">
+    <div id="login_wrapper">
+        <div class="logo">
+            <img src="~/Public/Admin/assets/img/logo/logo-icon@2x.png" alt="logo" class="logo-img">
+        </div>
+        <div id="login_content">
+            <h1 class="login-title">
+                İdarəetmə Panelinə Daxil Olun
+            </h1>
+            <div class="login-body">
+                <form action="@Url.Action("Index","AdminLogin")" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Email</label>
+                        <input type="email" name="Email" class="form-control">
+                    </div>
+                    <div class="form-group label-floating is-empty">
+                        <label class="control-label">Parol</label>
+                        <input type="password" name="Password" class="form-control">
+                    </div>
+                    <a href="javascript:void(0)" class="forgot-pass pull-right">Parolu Unutmusuz?</a>
+                    <div class="checkbox inline-block">
+                        <label>
+                            <input type="checkbox" class="checkbox-inline" value="">
+                            Məni Xatırla
+                        </label>
+                    </div>
+                    <button class="btn btn-info btn-block m-t-40">Daxil Ol</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/Public/Admin/assets/js/vendor.bundle.js"></script>
+    <script src="~/Public/Admin/assets/js/app.bundle.js"></script>
+</body>
+</html>

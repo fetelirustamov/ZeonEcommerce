@@ -1,0 +1,126 @@
+﻿@model  IEnumerable<ZeonEcommerce.App_Classes.CartItem>
+@{
+    ViewBag.Title = "CartPage";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px; border-radius:4px;box-shadow: inset 0 -1px 0 #ccc;">
+    <h2 style="padding-top:15px;margin:0px;">Alışveriş Səbəti</h2>
+
+    @{ 
+        decimal totalPrice = 0;
+        var Quantity = 0;
+        }
+    <div class="shopping-cart col-md-8">
+        <div class="shopping-cart-products ">
+            <ul class="shopping-product-detail" style="width:100%">
+                <li class="shopping-1">Şəkil</li>
+                <li class="shopping-2">Məhsulun Adı</li>
+                <li class="shopping-4">Sayı</li>
+                <li class="shopping-5">Qiyməti</li>
+                <li class="shopping-6">Ümumi Qiymət</li>
+            </ul>
+
+            <!-- REPEAT BY PRODUCT -->
+            @if (Session["CurrentUser"] != null)
+            {
+                foreach (ZeonEcommerce.Models.Basket item in ViewBag.BasketList)
+                {
+                    <ul class="shopping-product-detail">
+                        <li class="shopping-1">
+                            <img src="~/@item.Products.Picture?w=150&h=150" alt="product image" />
+                        </li>
+                        <li class="shopping-2">
+                            <a href="#">@item.Products.Name</a>
+                        </li>
+                        <li class="shopping-4">
+                            <input type="button" value="-" class="minus">
+                            <input type="number" step="1" min="1" name="quantity" value="@item.Quantity" title="Qty" class="input-text qty text">
+                            <input type="button" value="+" class="plus">
+                        </li>
+                        <li class="shopping-5">
+                            $ @item.Products.Price
+                        </li>
+                        <li class="shopping-6">
+                            $ @{var TotalPrice = item.Products.Price * item.Quantity;} @TotalPrice<button class="RemoveCartProduct" name="@item.ProductsID">x</button>
+
+                        </li>
+                        @{Quantity += item.Quantity;totalPrice += TotalPrice;} 
+                      </ul>
+                }
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+
+                    <ul class="shopping-product-detail">
+                        <li class="shopping-1">
+                            <img src="~/@item.Product.Picture?w=150&h=150" alt="product image" />
+                        </li>
+                        <li class="shopping-2">
+                            <a href="#">@item.Product.Name</a>
+                            <p>blazer blue</p>
+                        </li>
+                        <li class="shopping-4">
+                            <input type="button" value="-" class="minus">
+                            <input type="number" step="1" min="1" name="quantity" value="@item.Quantity" title="Qty" class="input-text qty text">
+                            <input type="button" value="+" class="plus">
+                        </li>
+                        <li class="shopping-5">
+                            $ @item.Product.Price
+                        </li>
+
+
+                        <li class="shopping-6">
+                            $ @{ var TotalPrice = item.Product.Price * item.Quantity; totalPrice += TotalPrice; Quantity += item.Quantity;} @TotalPrice<button class="RemoveCartProduct" name="@item.Product.ProductsId">x</button>
+                        </li>
+                        
+                    </ul>
+                }
+            }
+
+
+            <!-- REPEAT BY PRODUCT -->
+
+        </div>
+        <a href="/Home/index" class="button-6">Alış verişə davam</a>
+    </div>
+    <div class="row col-md-3 col-md-offset-1 ">
+        <div class="checkout-total">
+            <p style="margin-top:15px">Məbləğ : $ @totalPrice</p>
+            <p>Göndərmə haqqı : $ 0.00</p>
+            <p>Məhsul Sayı : @Quantity</p>
+            <hr style="margin:0;margin-bottom:15px;" />
+            <p>Cəmi Məbləğ : $@totalPrice</p>
+        </div>
+
+        <a href="@Url.Action("CompleteShopping","Home")" class="button-7">Sifarişi rəsmiləşdir</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function myfunction() {
+        $(".RemoveCartProduct").click(function myfunction() {
+            var pId = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/CartProductRemove",
+                data: { id: pId },
+                success: function myfunction() {
+                    $.ajax({
+                        type: "Get",
+                        url: "/Home/Cart",
+                        success: function myfunction(data) {
+                            $("body").html("");
+                            $("body").html(data);
+                        }
+                    })
+                },
+                error: function myfunction() {
+
+                }
+            });
+        });
+    });
+</script>

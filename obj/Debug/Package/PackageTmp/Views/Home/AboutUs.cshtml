@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.OurTeam>
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px;">
+    <div class="site-title" style="margin-top:10px">
+        <div style="margin:10px">
+            <span style="font-size:16px;color:#333333">Bizim Kamanda</span>
+        </div>
+    </div>
+    <div class="our-team" data-tesla-plugin="slider" data-tesla-item=".slide" data-tesla-next=".slide-right" data-tesla-prev=".slide-left" data-tesla-container=".slide-wrapper" data-tesla-autoplay="false">
+        <div class="row">
+            <ul class="the-bullets-dots" data-tesla-plugin="bullets">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="col-md-2 col-xs-4">
+                            <div class="our-team-member">
+                                <div class="hover-effect"><i class="icon-473" title="473"></i></div>
+                                <img src="~/@item.Picture" alt="our team meber" />
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+        <ul class="slide-wrapper">
+            @foreach (var item in Model)
+            {
+
+                <li class="slide">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="our-team-member">
+                                <img src="~/@item.Picture?w=500&h=500" alt="our team meber" />
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="our-team-member-details">
+                                <h3>@item.Name</h3>
+                                <h4>@item.Job</h4>
+                                <ul class="our-team-member-socials">
+                                    <li><a href="https://@item.Facebook"><i class="icon-160" title="161"></i></a></li>
+                                    <li><a href="#"><i class="icon-138" title="161"></i></a></li>
+                                    <li><a href="#"><i class="icon-106" title="161"></i></a></li>
+                                    <li><a href="#"><i class="icon-169" title="161"></i></a></li>
+                                    <li><a href="#"><i class="icon-163" title="161"></i></a></li>
+                                </ul>
+                                <p>@item.About</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="box">
+    <div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px;">
+        <div class="site-title" style="margin-top:10px">
+            <div style="margin:10px">
+                <span style="font-size:16px;color:#333333">Statistika</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-xs-6">
+                <div class="statistics-circle">
+                    60%<span>Qədər Endirim</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+                <div class="statistics-circle">
+                    14.8 Mln<span>Məhsul Sayı</span>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-6">
+                <div class="statistics-circle">
+                    21 Mln<span>Günlük İstifadəçı</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{ Html.RenderAction("Services", "Home");}

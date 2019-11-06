@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "AddOurTeams";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">İş Komandamızı Genişləndir</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="AddTeams" action="@Url.Action("AddTeams","OurTeams")" method="post" class="form-horizantal" enctype="multipart/form-data">
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Adı</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Adı" name="Name">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Vəzifə</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Job" placeholder="Şirkətdəki Vəzifəsi">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Facebook</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Facebook hesabı" name="Facebook">
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Twitter</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Twitter hesabı"  name="Twitter"  />
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Linkedin</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Linkedin hesabı"  name="Linkedin"  />
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Google</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="Google hesabı" name="Google"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label">Haqqında</label>
+                        <div class="col-md-10">
+                            <textarea id="About" class="form-control" name="About" placeholder="Haqqında"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" id="Picture" name="Picture" multiple>
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" name="Picture" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

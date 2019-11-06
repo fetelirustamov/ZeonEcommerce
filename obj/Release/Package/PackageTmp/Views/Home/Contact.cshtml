@@ -1,0 +1,100 @@
+﻿@model ZeonEcommerce.Models.Settings
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>contact</h2>
+                <div class="google-map">
+                    <div style="width: 750px;position: relative;">
+                        <iframe width="750" height="450" src="https://maps.google.com/maps?width=750&amp;height=450&amp;hl=en&amp;q=Baki%20Abbas%20Mirza%20sharifzade+(Title)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><div style="position: absolute;width: 80%;bottom: 10px;left: 0;right: 0;margin-left: auto;margin-right: auto;color: #000;text-align: center;"><small style="line-height: 1.8;font-size: 2px;background: #fff;">Powered by <a href="http://www.googlemapsgenerator.com/fr/">Googlemapsgenerator.com/fr/</a> & <a href="https://willoughby-pr.co.uk/">www.gmailbulkemail.com</a></small></div>
+                        <style>
+                            #gmap_canvas img {
+                                max-width: none !important;
+                                background: none !important
+                            }
+                        </style>
+                    </div><br />
+                </div>
+
+                <div class="contact-info">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <ul>
+                                <li><span class="location">@Model.Adress</span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li><span class="mail"><a href="mailto:zoom@mail.com">@Model.Email</a></span></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li><span class="phone">@Model.Phone</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="site-title">
+                    <div class="site-inside">
+                        <span>Bizə Yazın</span>
+                    </div>
+                </div>
+                <p>
+                    @if (ViewBag.Message != null)
+                    {
+                        @ViewBag.Message
+                    }
+            </p>
+            <div class="the-form">
+                
+                <form action="@Url.Action("Contact","Home")" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Başlıq</p>
+                            <input type="text" name="subject" class="the-line">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Emailiniz</p>
+                            <input type="text" name="receiver" class="the-line">
+                        </div>
+                    </div>
+                    <p>Mesajınız</p>
+                    <textarea name="message" class="the-area"></textarea>
+                    <button type="submit" class="btn btn-danger">Göndər</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="main-sidebar">
+                <div class="row">
+
+                    @{Html.RenderAction("ContactCategories", "Home");}
+                    @{Html.RenderAction("ContactBestSellers", "Home");}
+
+                    <div class="col-md-12 col-xs-6">
+                        <div class="widget">
+                            <div class="widget-title">Tags</div>
+                            <div class="tagcloud">
+                                <a href="#">Art</a>
+                                <a href="#">Collection</a>
+                                <a href="#">Fashion</a>
+                                <a href="#">Dark</a>
+                                <a href="#">White</a>
+                                <a href="#">Texture</a>
+                                <a href="#">Minimalist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

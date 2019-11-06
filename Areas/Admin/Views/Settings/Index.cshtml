@@ -1,0 +1,89 @@
+﻿@model ZeonEcommerce.Models.Settings
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card card-data-tables customer-table-wrapper">
+            <header class="card-heading">
+                <h2 class="card-title">Saytın Ayarları</h2>
+                <small class="dataTables_info"></small>
+                <ul class="card-actions icons right-top">
+                    <li id="deleteModels" style="display: none;">
+                        <span class="label label-info pull-left m-t-5 m-r-10 text-white"></span>
+                        <a href="javascript:void(0)" id="confirmDelete" data-toggle="tooltip" data-placement="top" data-original-title="Delete Product(s)">
+                            <i class="zmdi zmdi-delete"></i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="orderTable" class="mdl-data-table customer-table m-t-30" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th data-orderable="false" class="col-xs-1">
+                                    <span class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" id="checkAll">
+                                            <span class="checkbox-material"></span>
+                                        </label>
+                                    </span>
+                                </th>
+                                <th class="col-xs-1">Açıqlama</th>
+                                <th class="col-xs-1">Logo</th>
+                                <th class="col-xs-1">Telefon</th>
+                                <th class="col-xs-1">Email</th>
+                                <th class="col-xs-1">Faks</th>
+                                <th class="col-xs-1">Şəhər</th>
+                                <th class="col-xs-1">Adress</th>
+                                <th class="col-xs-1">Facebook </th>
+                                <th class="col-xs-1">Twitter </th>
+                                <th class="col-xs-1">İnstagram</th>
+                                <th class="col-xs-1">Youtube</th>
+                                <th class="col-xs-1">Google </th>
+                                <th data-orderable="false" class="col-xs-1"><button class="btn btn-primary btn-fab  animate-fab"><i class="zmdi zmdi-plus"></i></button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <tr>
+                                    <td class="checkbox-cell">
+                                        <span class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" id="">
+                                                <span class="checkbox-material"></span>
+                                            </label>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <span class="name block m-t-10 m-b-10">@Model.Title</span>
+                                        </div>
+                                    </td>
+                                    <td>@Model.Logo </td>
+                                    <td>@Model.Phone </td>
+                                    <td>@Model.Email </td>
+                                    <td>@Model.Fax </td>
+                                    <td>@Model.City </td>
+                                    <td>@Model.Adress </td>
+                                    <td>@Model.Facebook </td>
+                                    <td>@Model.Twitter </td>
+                                    <td>@Model.Instagram </td>
+                                    <td>@Model.Youtube </td>
+                                    <td>@Model.Google </td>
+                                    <td>
+                                        <a href="@Url.Action("Edit","Settings",new { id=Model.Id})"><i class="zmdi zmdi-edit zmdi-hc-2x"></i></a>
+                                    </td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

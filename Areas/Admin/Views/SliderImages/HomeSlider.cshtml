@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "HomeSlider";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<row>
+    <div class="col-xs-12 col-sm-12" style="position:relative">
+        <div class="card">
+            <header class="card-heading">
+                <h2 class="card-title">Məhsulun Slider Şəkillərin Yüklə </h2>
+
+            </header>
+            <div class="card-body">
+                <form action="@Url.Action("AddImages","SliderImages")" method="post" class="dropzone" id="product_add_images_form" enctype="multipart/form-data">
+                    <input type="hidden" name="RowNo" value="1" />
+                    <div class="fallback">
+                        <input type="file" name="HomeSlider" multiple />
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+
+        <a href="@Url.Action("index","SliderImages")" style="padding:0,50px;" class="btn btn-danger">Şəkillərə Get</a>
+    </div>
+</row>
+
+
+

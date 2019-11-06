@@ -1,0 +1,37 @@
+﻿@model ZeonEcommerce.Models.Customers
+@{
+    ViewBag.Title = "MyAccount";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 ">
+
+            <div class="list-group" style="margin-top:30px">
+                <a href="#" class="list-group-item">Hesabım</a>
+                <a href="@Url.Action("Cart","Home")" class="list-group-item">Səbətim</a>
+                <a href="#" class="list-group-item">Sifarişlərim</a>
+            </div>
+
+
+        </div>
+            <div class="col-md-8" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px; padding:20px;padding-bottom:20px;">
+                <form action="@Url.Action("EditAccount","Home")" method="post" class="register-form">
+                    <h2 style="float:left">Hesabım</h2><br /><br /><br />
+                    <p>Ad</p>
+                    <input type="text" name="Name" value="@Model.Name" class="input-line">
+                    <p>Şəhər</p>
+                    <input type="text" name="City" value="@Model.City" class="input-line">
+                    <p>Ünvan</p>
+                    <input type="text" name="Street" value="@Model.Street" class="input-line">
+                    <p>E-mail</p>
+                    <input type="text" name="Email" value="@Model.Email" class="input-line">
+                    <p>Telefon</p>
+                    <input type="text" name="Phone" value="@Model.Phone" class="input-line">
+                    <input type="hidden" name="CustomersId" value="@Model.CustomersId" />
+                    <input type="submit" value="Yenilə" class="button-9">
+                </form>
+            </div>
+        </div>
+</div>

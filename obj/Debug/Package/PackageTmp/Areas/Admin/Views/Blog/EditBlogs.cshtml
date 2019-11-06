@@ -1,0 +1,54 @@
+﻿@model ZeonEcommerce.Models.Blogs
+@{
+    ViewBag.Title = "EditBlogs";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-10" style="margin-left:110px">
+        <div class="card p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Blog Yazısını Yenilə</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form id="AddBrands" action="@Url.Action("EditBlogs","Blog")" method="post" class="form-horizantal" enctype="multipart/form-data">
+
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Başlıq</label>
+                        <div class="col-md-10">
+                            <input name="Title" type="text" class="form-control" value="@Model.Title">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 form-control-label">Yazınız: </label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="5">@Model.BlogContent</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <div class="input-group">
+                            <label class="col-md-2 control-label ">Şəkil</label>
+                            <input type="file" class="form-control" id="Picture">
+                            <div class="input-group col-md-10">
+                                <input type="text" readonly="" class="form-control" placeholder="Şəkil Yüklə">
+                                <span class="input-group-btn input-group-sm">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        File
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary">Yenilə</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

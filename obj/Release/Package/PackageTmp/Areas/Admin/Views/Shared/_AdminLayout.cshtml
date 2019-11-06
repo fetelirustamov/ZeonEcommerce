@@ -1,0 +1,183 @@
+﻿
+@{
+    Layout = null;
+    var user = Session["AdminLoginUser"] as ZeonEcommerce.Models.Suppliers;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>MaterialWrap - jQuery full version</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/Public/Admin/assets/css/vendor.bundle.css">
+    <link rel="stylesheet" href="/Public/Admin/assets/css/app.bundle.css">
+    <link rel="stylesheet" href="/Public/Admin/assets/css/theme-a.css">
+</head>
+<body>
+    <div id="app_wrapper">
+        <header id="app_topnavbar-wrapper">
+            <nav role="navigation" class="navbar topnavbar">
+                <div class="nav-wrapper">
+                    <ul class="nav navbar-nav pull-left left-menu">
+                        <li class="app_menu-open">
+                            <a href="javascript:void(0)" data-toggle-state="app_sidebar-left-open" data-key="leftSideBar">
+                                <i class="zmdi zmdi-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav left-menu hidden-xs">
+                        <li>
+                            <a href="@Url.Action("Index","AdminHome")" class="nav-link">
+                                <span>Əsas Səhifə</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown avatar-menu">
+                            <a href="@Url.Action("Index","AdminHome")" data-toggle="dropdown" aria-expanded="false">
+                                <span class="meta">
+                                    <span class="avatar">
+                                        <img src="~/Public/Admin/assets/img/profiles/02.jpg" alt="" class="img-circle max-w-35">
+                                        <i class="badge mini success status"></i>
+                                    </span>
+                                    <span class="name">@user.Name</span>
+                                    <span class="caret"></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                <li>
+                                    <a href="@Url.Action("AdminAccount","AdminHome")"><i class="zmdi zmdi-account"></i> Hesabım</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("LogOut","AdminLogin")"><i class="zmdi zmdi-sign-in"></i> Çıxış Et</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)" data-navsearch-open>
+                                <i class="zmdi zmdi-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside id="app_sidebar-left">
+            <div id="logo_wrapper">
+                <ul>
+                    <li class="logo-icon">
+                        <a href="index.html">
+                            <div class="logo">
+                                <img src="~/Public/Admin/assets/img/logo/logo-icon.png" alt="Logo">
+                            </div>
+                            <h1 class="brand-text">Admin Panel</h1>
+                        </a>
+                    </li>
+                    <li class="menu-icon">
+                        <a href="javascript:void(0)" role="button" data-toggle-state="app_sidebar-menu-collapsed" data-key="leftSideBar">
+                            <i class="mdi mdi-backburger"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <nav id="app_main-menu-wrapper" class="scrollbar">
+                <div class="sidebar-inner sidebar-push">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="@Url.Action("Index","Home")"><i class="zmdi zmdi-view-dashboard"></i>Əsas Səhifə</a></li>
+                        <li>
+                            <a href="@Url.Action("Index","Settings")"><i class="zmdi zmdi-settings"></i>Idarəetmə</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Advertising")"><i class="zmdi zmdi-flag"></i>Reklam</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Blog")"><i class="zmdi zmdi-border-color"></i>Blog</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Pages")"><i class="zmdi zmdi-pages"></i>Səhifələr</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Categories")"><i class="zmdi zmdi-menu"></i>Kategoriyalar</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","OurTeams")"><i class="zmdi zmdi-card-travel"></i>Bizim Kamanda</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Customers")"><i class="zmdi zmdi-accounts"></i>İstifadəçilər</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Brands")"><i class="zmdi zmdi-view-array"></i>Brendlər</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Products")"><i class="zmdi zmdi-settings"></i>Məhsullar</a>
+                        </li>
+                        <li class="nav-dropdown">
+                            <a href="#"><i class="zmdi zmdi-widgets"></i>Məhsul Xüsusiyyətləri</a>
+                            <ul class="nav-sub">
+                                <li><a href="@Url.Action("Index","ParameterType")">Xüsusiyyətlər</a></li>
+                                <li><a href="@Url.Action("Index","ParameterValue")">Xüsusiyyər Dəyərləri</a></li>
+                                <li><a href="@Url.Action("Index","ProductParameters")">Məhsul Xüsusiyyəri</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","ProductComments")"> <i class="zmdi zmdi-comments"></i> Məhsul Rəylər</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Suppliers")"><i class="zmdi zmdi-account-box"></i>Satıcılar</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","Rols")"><i class="zmdi zmdi-accounts-list"></i>Rols</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","BlogComments")"><i class="zmdi zmdi-comment-edit"></i>Blog Rəylər</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index","SliderImages")"><i class="zmdi zmdi-slideshow"></i>Slider Şəkilləri</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <section id="content_outer_wrapper">
+            <div id="content_wrapper">
+                <div id="content" class="container-fluid">
+                    <div class="content-body">
+                        @RenderBody()
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46627904-1', 'authenticgoods.co');
+        ga('send', 'pageview');
+    </script>
+
+    <script src="/Public/Admin/assets/js/vendor.bundle.js"></script>
+    <script src="/Public/Admin/assets/js/custom.js"></script>
+    <script src="/Public/Admin/assets/js/app.bundle.js"></script>
+</body>
+</html>

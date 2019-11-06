@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@Session["Title"]</title>
+    <meta name="description" content="Here goes description" />
+    <meta name="author" content="author name" />
+    <meta name="yandex-verification" content="df8681b359789bad" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!-- ======================================================================
+                                Mobile Specific Meta
+    ======================================================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- ======================================================================
+                                Style CSS + Google Fonts
+    =======================================================================
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,700italic,400,600,700,800" rel="stylesheet" type="text/css"> -->
+    @*<link href="~/Public/Zeon/css/bootstrap.css" rel="stylesheet" />*@
+    <link href="~/Public/Zeon/css/bootstrap.3.3.6.min.css" rel="stylesheet" />
+    <link href="~/Public/Zeon/css/brandsCarouselStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Public/Zeon/css/customStyle.css" />
+    <link href="~/Public/Zeon/css/custom.css" rel="stylesheet" />
+    <link href="~/Public/Zeon/css/fotorama.css" rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149832423-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149832423-1');
+    </script>
+
+    @RenderSection("style", false)
+</head>
+
+<body class="home-blog-show">
+    <!-- ======================================================================
+                                    START SCRIPTS
+    ======================================================================= -->
+    @{Html.RenderAction("Header", "Home");}
+
+    <!-- ======================================================================
+                                    END HEADER
+    ======================================================================= -->
+    <!-- ======================================================================
+                                    START CONTENT
+    ======================================================================= -->
+
+
+
+    <div class="content">
+        @RenderBody()
+
+    </div>
+
+
+
+    <!-- ======================================================================
+                                    END CONTENT
+    ======================================================================= -->
+    <!-- ======================================================================
+                                    START FOOTER
+    ======================================================================= -->
+    @{Html.RenderAction("Footer", "Home");}
+    <!-- ======================================================================
+                                    END FOOTER
+    ======================================================================= -->
+    <!-- ======================================================================
+                                    START SCRIPTS
+    ======================================================================= -->
+
+    <script src="~/Public/Zeon/js/jquery-2.2.0.min.js"></script>
+    <script src="~/Public/Zeon/js/modernizr.custom.63321.js" type="text/javascript"></script>
+    @*<script src="~/Public/Zeon/js/bootstrap.js" type="text/javascript"></script>*@
+    <script src="~/Public/Zeon/js/bootstrap.3.3.6.min.js"></script>
+    <script src="~/Public/Zeon/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/placeholder.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/masonry.pkgd.min.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/jquery.swipebox.min.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/farbtastic/farbtastic.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/options.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/plugins.js" type="text/javascript"></script>
+    <script src="~/Public/Zeon/js/fotorama.js"></script>
+    <script src="~/Public/Zeon/js/slick.js"></script>
+
+    @RenderSection("script", false)
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- ======================================================================
+                                    END SCRIPTS
+    ======================================================================= -->
+</body>
+
+</html>

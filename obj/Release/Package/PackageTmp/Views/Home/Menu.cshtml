@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Categories>
+<div class="menu">
+    @{var i = 0; }
+    <div class="repsonsive-menu"><i class="icon-406" title="406"></i> Menu</div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (item.SubCategoryID == 0)
+            {
+                <li>
+                    <a href="@Url.Action("Products", "Home", new { c =item.Name })">@item.Name</a>
+                   
+
+                    <ul>
+                        @foreach (var Subitem in Model)
+                        {
+                            if (Subitem.SubCategoryID == item.CategoriesId)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Products", "Home", new { c =Subitem.Name })">@Subitem.Name</a>
+
+                                    <ul class="submenu">
+                                        @foreach (var Subitem2 in Model)
+                                        {
+                                            i++;
+                                            if (Subitem2.SubCategoryID == Subitem.CategoriesId)
+                                            {
+                                                <li><a href="@Url.Action("Products", "Home", new { c =Subitem2.Name })">@Subitem2.Name</a></li>
+                                            }
+                                            if (i == 8)
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    </ul>
+
+                                </li>
+                                
+
+                            }
+                        }
+                    </ul>
+                </li>
+            }
+
+        }
+
+    </ul>
+    <div class="clear"></div>
+</div>

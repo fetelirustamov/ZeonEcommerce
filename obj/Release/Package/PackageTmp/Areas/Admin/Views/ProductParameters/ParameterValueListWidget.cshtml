@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.ParameterValue>
+<div class="ValueList">
+    <div class="col-md-10">
+        <select class="select form-control"  name="ParameterValuesID">
+            @foreach (var item in Model)
+            {
+                <option value="@item.ParameterValueId">@item.Name</option>
+            }
+
+        </select>
+    </div>
+</div>

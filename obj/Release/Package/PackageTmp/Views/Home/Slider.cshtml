@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Images>
+@section style{
+
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery, -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+    <!-- Fotorama -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+}
+
+<div class="container" style="padding:0">
+    <div class="fotorama"
+         data-autoplay="true"
+         data-width="100%"
+         data-max-height="500"
+         data-ratio="3/2"
+         data-max-width="100%"
+         data-nav="thumbs">
+        @foreach (var item in Model)
+        {
+            if (item.HomeSlider != null)
+            {
+                <a href="~/@item.HomeSlider"><img src="~/@item.HomeSlider" style="max-width:1180px !important;max-height:500px !important;"></a>
+            }
+            else
+            {
+                continue;
+            }
+
+        }
+    </div>
+
+</div>

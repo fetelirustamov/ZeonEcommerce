@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Brands>
+<div class="col-md-12 col-xs-6">
+    <div class="widget">
+        <div class="widget-title" style="margin-top:20px">Brendlər</div>
+        <ul class="widget-category">
+            @foreach (var item in Model)
+            {
+            <li><a href="@Url.Action("Products", "Home", new { brand=item.Name })">@item.Name</a></li>
+            }
+            
+        </ul>
+    </div>
+</div>
+

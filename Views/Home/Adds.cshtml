@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Advertising>
+@if (Model != null)
+{
+
+    <div class="box color-2" style="padding-top:20px;padding-bottom:20px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="adds-2">
+                        @if (Model.Where(x => x.RowNo % 2 != 0).First().Picture != null)
+                        {
+                            <a href="#"><img src="~/@Model.Where(x=>x.RowNo%2!=0).First().Picture" alt="adds"></a>
+                        }
+
+
+                    </div>
+                </div>
+                @foreach (var item in Model.Where(x => x.RowNo % 2 == 0).Take(2))
+                {
+                    <div class="col-md-6">
+                        <div class="adds-3">
+                            <a href="#"><img src="~/@item.Picture" alt="adds"></a>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+}

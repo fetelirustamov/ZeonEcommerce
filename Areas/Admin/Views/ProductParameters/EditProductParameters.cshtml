@@ -1,0 +1,137 @@
+﻿@model ZeonEcommerce.ViewModel.ProductParamTypeValue
+@{
+    ViewBag.Title = "AddProductParameters";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-10 " style="margin-left:110px">
+        <div class="card p-b-20 p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Məhsul Xüsusiyyətlərinə Dəyər Əlavə Et</h2>
+
+            </header>
+            <div class="card-body card-container">
+                <form method="post" class="form-horizantal">
+                    @{
+                        var CategoryID = 0;
+                    }
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label"> Məhsul</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" id="ProductList" name="ProductsID">
+                                @foreach (var item in Model.Products)
+                                {
+                                    if (Model.ProductsID != null && Model.ProductsID == item.ProductsId)
+                                    {
+                                        <option value="@item.CategoriesID" selected>@item.Name</option>
+                                        CategoryID = item.CategoriesID;
+                                        continue;
+                                    }
+                                    <option value="@item.CategoriesID" onchange="myfunction">@item.Name</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label"> Xüsusiyyət</label>
+                        @if (Session["CategoryId"] != null)
+                        {
+                            <div class="TypeList">
+                                <div class="col-md-10">
+                                    <select class="select form-control" id="TypeList" name="ParameterTypeID">
+                                        @foreach (var item in Model.ParameterTypes.Where(x => x.CategoriesID == CategoryID))
+                                        {
+                                            <option value="@item.ParameterTypeId" onchange="myfunction">@item.Name</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            Html.RenderAction("ParameterTypeListWidget", "ProductParameters");
+                        }
+                    </div>
+                    <div class="form-group is-empty">
+                        <label class="col-md-2 control-label"> Xüsusiyyət Dəyəri</label>
+
+                        @if (Session["CategoryId"] != null)
+                        {
+                            <div class="ValueList">
+                                <div class="col-md-10">
+                                    <select class="select form-control" name="ParameterValueID">
+                                        @foreach (var item in Model.ParameterValues)
+                                        {
+
+                                            <option value="@item.ParameterValueId">@item.Name</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            Html.RenderAction("ParameterValueListWidget", "ProductParameters");
+                        }
+                    </div>
+                    <input type="hidden" name="ProductParametersId" value="@Model.ProductParameters.ProductParametersId" />
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="upload btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Public/Zeon/js/jquery-2.2.0.min.js"></script>
+<script>
+    $(document).ready(function myfunction() {
+
+        $('select#ProductList').on('change', function () {
+            var CategoryID = this.value;
+            $.ajax({
+                type: "GET",
+                url: "/Admin/ProductParameters/ParameterTypeListWidget",
+                data: { id: CategoryID },
+
+                success: function myfunction(data) {
+                    $(".TypeList").html("");
+                    $(".TypeList").html(data);
+                }
+            });
+
+        });
+
+        $('select#TypeList').on('change', function () {
+            var TypeID = this.value;
+            $.ajax({
+                type: "GET",
+                url: "/Admin/ProductParameters/ParameterValueListWidget",
+                data: { id: TypeID },
+
+                success: function myfunction(data) {
+                    $(".ValueList").html("");
+                    $(".ValueList").html(data);
+                }
+            });
+
+        });
+    });
+
+
+
+
+</script>
+
+

@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBC110AE-7D58-4A60-A303-594ADCE45EA9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZeonEcommerce</RootNamespace>
+    <AssemblyName>ZeonEcommerce</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0-preview6-19304-03\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0-preview6-19304-03\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageResizer.4.2.5\lib\net45\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="reCAPTCHA.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Classes\AllOthers.cs" />
+    <Compile Include="App_Classes\Cart.cs" />
+    <Compile Include="App_Classes\Gmail.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminControllerBase.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminLoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdvertisingController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BlogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OurTeamsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ParameterTypeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ParameterValueController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductCommentsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductParametersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RolsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SliderImagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SuppliersController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Filter\ActFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginProvider.cs" />
+    <Compile Include="Migrations\201910211923248_lnitialCreate.cs" />
+    <Compile Include="Migrations\201910211923248_lnitialCreate.Designer.cs">
+      <DependentUpon>201910211923248_lnitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910220610072_OrderDetails.cs" />
+    <Compile Include="Migrations\201910220610072_OrderDetails.Designer.cs">
+      <DependentUpon>201910220610072_OrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Advertising.cs" />
+    <Compile Include="Models\Basket.cs" />
+    <Compile Include="Models\BlogComments.cs" />
+    <Compile Include="Models\Blogs.cs" />
+    <Compile Include="Models\Brands.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\ECommerceContext.cs" />
+    <Compile Include="Models\Images.cs" />
+    <Compile Include="Models\Logs.cs" />
+    <Compile Include="Models\OrderDetails.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\OurTeam.cs" />
+    <Compile Include="Models\Pages.cs" />
+    <Compile Include="Models\ParameterType.cs" />
+    <Compile Include="Models\ParameterValue.cs" />
+    <Compile Include="Models\ProductParameters.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ProductsComments.cs" />
+    <Compile Include="Models\Rols.cs" />
+    <Compile Include="Models\Settings.cs" />
+    <Compile Include="Models\Suppliers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AdminCategories.cs" />
+    <Compile Include="ViewModel\AdminProduct.cs" />
+    <Compile Include="ViewModel\BasketSession.cs" />
+    <Compile Include="ViewModel\ParameterProduct.cs" />
+    <Compile Include="ViewModel\ParameterTypeCategories.cs" />
+    <Compile Include="ViewModel\ParameterValueType.cs" />
+    <Compile Include="ViewModel\ProductBrands.cs" />
+    <Compile Include="ViewModel\ProductParamTypeValue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Public\Admin\assets\ckeditor\build-config.js" />
+    <Content Include="Public\Admin\assets\ckeditor\ckeditor.js" />
+    <Content Include="Public\Admin\assets\ckeditor\config.js" />
+    <Content Include="Public\Admin\assets\ckeditor\contents.css" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\af.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ar.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\bg.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\bn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\bs.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ca.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\cs.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\cy.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\da.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\de.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\el.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\en-au.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\en-ca.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\en-gb.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\en.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\eo.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\es.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\et.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\eu.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\fa.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\fi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\fo.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\fr-ca.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\fr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\gl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\gu.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\he.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\hi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\hr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\hu.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\is.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\it.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ja.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ka.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\km.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ko.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ku.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\lt.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\lv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\mk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\mn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ms.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\nb.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\nl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\no.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\pl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\pt-br.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\pt.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ro.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ru.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\sk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\sl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\sr-latn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\sr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\sv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\th.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\tr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\ug.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\uk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\vi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\zh-cn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\lang\zh.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\fakeobjects\images\spacer.gif" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\icons.png" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\ajax.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\api.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\appendto.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\inlineall\logo.png" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\posteddata.php" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\sample.css" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\sample.jpg" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\assets\uilanguages\languages.js" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\divreplace.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\index.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\inlineall.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\inlinebycode.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\dialog\assets\my_dialog.js" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\dialog\dialog.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\enterkey\enterkey.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\htmlwriter\outputforflash.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\htmlwriter\outputhtml.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\magicline\magicline.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\toolbar\toolbar.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\wysiwygarea\fullpage.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\readonly.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\replacebyclass.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\replacebycode.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\sample.css" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\sample.js" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\sample_posteddata.php" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\tabindex.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\uicolor.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\uilanguages.html" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\xhtmlstyle.html" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog_ie.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog_ie7.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog_ie8.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog_iequirks.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\dialog_opera.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor_gecko.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor_ie.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor_ie7.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor_ie8.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\editor_iequirks.css" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\icons.png" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\images\arrow.png" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\images\close.png" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\images\mini.png" />
+    <Content Include="Public\Admin\assets\ckeditor\styles.js" />
+    <Content Include="Public\Admin\assets\css\app.bundle.css" />
+    <Content Include="Public\Admin\assets\css\app.css" />
+    <Content Include="Public\Admin\assets\css\js\app.bundle.css" />
+    <Content Include="Public\Admin\assets\css\js\app.css" />
+    <Content Include="Public\Admin\assets\css\js\app.bundle.js" />
+    <Content Include="Public\Admin\assets\css\js\vendor.bundle.js" />
+    <Content Include="Public\Admin\assets\css\js\vendor.js" />
+    <Content Include="Public\Admin\assets\css\js\vendor.bundle.css" />
+    <Content Include="Public\Admin\assets\css\js\vendor.css" />
+    <Content Include="Public\Admin\assets\css\theme-a.css" />
+    <Content Include="Public\Admin\assets\css\theme-b.css" />
+    <Content Include="Public\Admin\assets\css\theme-c.css" />
+    <Content Include="Public\Admin\assets\css\theme-d.css" />
+    <Content Include="Public\Admin\assets\css\theme-e.css" />
+    <Content Include="Public\Admin\assets\css\theme-f.css" />
+    <Content Include="Public\Admin\assets\css\theme-g.css" />
+    <Content Include="Public\Admin\assets\css\theme-h.css" />
+    <Content Include="Public\Admin\assets\css\vendor.bundle.css" />
+    <Content Include="Public\Admin\assets\css\vendor.css" />
+    <Content Include="Public\Admin\assets\fonts\default-skin.svg" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Icons.svg" />
+    <Content Include="Public\Admin\assets\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Public\Admin\assets\fonts\mejs-controls.svg" />
+    <Content Include="Public\Admin\assets\fonts\slick.svg" />
+    <Content Include="Public\Admin\assets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Public\Admin\assets\img\clear.png" />
+    <Content Include="Public\Admin\assets\img\favicon-16x16.png" />
+    <Content Include="Public\Admin\assets\img\fileupload\fileupload-bg.jpg" />
+    <Content Include="Public\Admin\assets\img\icons\cc\american-express.png" />
+    <Content Include="Public\Admin\assets\img\icons\cc\discover.png" />
+    <Content Include="Public\Admin\assets\img\icons\cc\mastercard.png" />
+    <Content Include="Public\Admin\assets\img\icons\cc\visa.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AQ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AX.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\AZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BB.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BJ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\BZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CV.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CX.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\CZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DJ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\DZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\EC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\EE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\EG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\EH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ER.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ES.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ET.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\EU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FJ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\FR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GB.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GQ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\GY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\HK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\HN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\HR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\HT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\HU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ID.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IQ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\IT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\JE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\JM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\JO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\JP.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KP.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\KZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LB.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LV.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\LY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ME.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ML.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MP.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MQ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MV.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MX.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\MZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NP.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\NZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\OM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\PY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\QA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\RO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\RS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\RU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\RW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SB.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ST.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SV.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\SZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TD.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TH.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TJ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TK.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TL.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TO.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TR.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TV.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TW.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\TZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\UA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\UG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\US.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\UY.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\UZ.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VC.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VG.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VI.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VN.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\VU.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\WF.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\WS.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\YE.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\YT.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ZA.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ZM.png" />
+    <Content Include="Public\Admin\assets\img\icons\flags\ZW.png" />
+    <Content Include="Public\Admin\assets\img\icons\logos\dribbble.jpg" />
+    <Content Include="Public\Admin\assets\img\icons\logos\Slack_RGB.svg" />
+    <Content Include="Public\Admin\assets\img\icons\logos\spotify.jpg" />
+    <Content Include="Public\Admin\assets\img\icons\logos\starbucks.svg" />
+    <Content Include="Public\Admin\assets\img\icons\misc\coffee-icon.png" />
+    <Content Include="Public\Admin\assets\img\icons\misc\plane.jpg" />
+    <Content Include="Public\Admin\assets\img\loading.gif" />
+    <Content Include="Public\Admin\assets\img\locations\EOZpjI3oSqKPNnF2S4Tp_Untitled.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1421986598195-0d9c26ecfcde.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1429681601148-75510b2cef43.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1432107294469-414527cb5c65.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1442975631115-c4f7b05b8a2c.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1446226760091-cc85becf39b4.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1449198063792-7d754d6f3c80.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1461072905169-7ca88b4d7b77.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1461963040894-7ee721035376.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1476386633426-499f460f6732.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1480348709911-be15f2c579ff.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1483204358806-afc5571f655b.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1483274816418-3975509c8f78.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1483648969698-5e7dcaa3444f.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1484805410139-353f84adfc96.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\photo-1484863083876-c0bf99ddaa61.jpeg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_1.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_10.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_2.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_3.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_4.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_5.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_6.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_7.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_8.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\shop_9.jpg" />
+    <Content Include="Public\Admin\assets\img\locations\unsplash-bonus.jpg" />
+    <Content Include="Public\Admin\assets\img\logo\logo-icon%402x.png" />
+    <Content Include="Public\Admin\assets\img\logo\logo-icon-white%402x.png" />
+    <Content Include="Public\Admin\assets\img\logo\logo-icon-white.png" />
+    <Content Include="Public\Admin\assets\img\logo\logo-icon.png" />
+    <Content Include="Public\Admin\assets\img\logo\logo-icon_v2%402x.png" />
+    <Content Include="Public\Admin\assets\img\mejs-controls.png" />
+    <Content Include="Public\Admin\assets\img\photoSwipe\default-skin\default-skin.png" />
+    <Content Include="Public\Admin\assets\img\photoSwipe\default-skin\default-skin.svg" />
+    <Content Include="Public\Admin\assets\img\photoSwipe\default-skin\preloader.gif" />
+    <Content Include="Public\Admin\assets\img\profiles\01.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\02.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\03.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\04.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\05.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\06.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\07.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\08.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\blank.png" />
+    <Content Include="Public\Admin\assets\img\profiles\large_01.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_02.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_03.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_04.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_05.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_06.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\large_07.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\mascot.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\mj.jpg" />
+    <Content Include="Public\Admin\assets\img\profiles\rn.jpg" />
+    <Content Include="Public\Admin\assets\js\app.bundle.js" />
+    <Content Include="Public\Admin\assets\js\custom.js" />
+    <Content Include="Public\Admin\assets\js\vendor.bundle.js" />
+    <Content Include="Public\Admin\assets\js\vendor.js" />
+    <Content Include="Public\Zeon\css\bootstrap.3.3.6.min.css" />
+    <Content Include="Public\Zeon\css\bootstrap.css" />
+    <Content Include="Public\Zeon\css\brandsCarouselStyle.css" />
+    <Content Include="Public\Zeon\css\custom.css" />
+    <Content Include="Public\Zeon\css\customStyle.css" />
+    <Content Include="Public\Zeon\css\fonts\icomoon.svg" />
+    <Content Include="Public\Zeon\css\fotorama.css" />
+    <Content Include="Public\Zeon\css\style.css" />
+    <Content Include="Public\Zeon\images\elements\action-bg.png" />
+    <Content Include="Public\Zeon\images\elements\alert.png" />
+    <Content Include="Public\Zeon\images\elements\arrows_2_1.png" />
+    <Content Include="Public\Zeon\images\elements\arrows_2_2.png" />
+    <Content Include="Public\Zeon\images\elements\button-bg-1.png" />
+    <Content Include="Public\Zeon\images\elements\button-bg-2.png" />
+    <Content Include="Public\Zeon\images\elements\button-bg-3.png" />
+    <Content Include="Public\Zeon\images\elements\button-bg.png" />
+    <Content Include="Public\Zeon\images\elements\check.png" />
+    <Content Include="Public\Zeon\images\elements\contact-sprite.png" />
+    <Content Include="Public\Zeon\images\elements\entry-bg.png" />
+    <Content Include="Public\Zeon\images\elements\error-404.png" />
+    <Content Include="Public\Zeon\images\elements\logo.png" />
+    <Content Include="Public\Zeon\images\elements\menu-arrows.png" />
+    <Content Include="Public\Zeon\images\elements\payment.png" />
+    <Content Include="Public\Zeon\images\elements\price-bg.png" />
+    <Content Include="Public\Zeon\images\elements\reply.png" />
+    <Content Include="Public\Zeon\images\elements\search-bg-error.png" />
+    <Content Include="Public\Zeon\images\elements\search-bg.png" />
+    <Content Include="Public\Zeon\images\elements\socials\behance.png" />
+    <Content Include="Public\Zeon\images\elements\socials\dribble.png" />
+    <Content Include="Public\Zeon\images\elements\socials\facebook.png" />
+    <Content Include="Public\Zeon\images\elements\socials\flickr.png" />
+    <Content Include="Public\Zeon\images\elements\socials\googleplus.png" />
+    <Content Include="Public\Zeon\images\elements\socials\linkedin.png" />
+    <Content Include="Public\Zeon\images\elements\socials\pinterest.png" />
+    <Content Include="Public\Zeon\images\elements\socials\rss.png" />
+    <Content Include="Public\Zeon\images\elements\socials\twitter.png" />
+    <Content Include="Public\Zeon\images\elements\socials\youtube.png" />
+    <Content Include="Public\Zeon\images\elements\testimonial-avatar.jpg" />
+    <Content Include="Public\Zeon\images\elements\title-bg-2.png" />
+    <Content Include="Public\Zeon\images\elements\title-bg.png" />
+    <Content Include="Public\Zeon\images\elements\zoom.png" />
+    <Content Include="Public\Zeon\images\swipebox\icons.png" />
+    <Content Include="Public\Zeon\images\swipebox\icons.svg" />
+    <Content Include="Public\Zeon\images\swipebox\loader.gif" />
+    <Content Include="Public\Zeon\js\bootstrap.3.3.6.min.js" />
+    <Content Include="Public\Zeon\js\bootstrap.js" />
+    <Content Include="Public\Zeon\js\farbtastic\farbtastic-dev.js" />
+    <Content Include="Public\Zeon\js\farbtastic\farbtastic.css" />
+    <Content Include="Public\Zeon\js\farbtastic\farbtastic.js" />
+    <Content Include="Public\Zeon\js\farbtastic\marker.png" />
+    <Content Include="Public\Zeon\js\farbtastic\mask.png" />
+    <Content Include="Public\Zeon\js\farbtastic\wheel.png" />
+    <Content Include="Public\Zeon\js\fotorama.js" />
+    <Content Include="Public\Zeon\js\imagesloaded.pkgd.min.js" />
+    <Content Include="Public\Zeon\js\jquery-1.10.0.min.js" />
+    <Content Include="Public\Zeon\js\jquery-2.2.0.min.js" />
+    <Content Include="Public\Zeon\js\jquery-ui.min.js" />
+    <Content Include="Public\Zeon\js\jquery.swipebox.min.js" />
+    <Content Include="Public\Zeon\js\masonry.pkgd.min.js" />
+    <Content Include="Public\Zeon\js\modernizr.custom.63321.js" />
+    <Content Include="Public\Zeon\js\options-back.js" />
+    <Content Include="Public\Zeon\js\options.js" />
+    <Content Include="Public\Zeon\js\placeholder.js" />
+    <Content Include="Public\Zeon\js\plugins.js" />
+    <Content Include="Public\Zeon\js\slick.js" />
+    <Content Include="Public\Zeon\robots.txt" />
+    <Content Include="Public\Zeon\Zeon Documentation\css\bootstrap.css" />
+    <Content Include="Public\Zeon\Zeon Documentation\css\style.css" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\bg.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\bg_a.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\but_bg.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\glyphicons-halflings-white.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\glyphicons-halflings.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\h1_bg.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\logo_bg.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\theme_images\contacts.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\theme_images\theme.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\images\top_bg.png" />
+    <Content Include="Public\Zeon\Zeon Documentation\index.html" />
+    <Content Include="Public\Zeon\Zeon Documentation\javascript\bootstrap.js" />
+    <Content Include="Public\Zeon\Zeon Documentation\javascript\jquery.js" />
+    <Content Include="Public\Zeon\Zeon Documentation\javascript\options.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\AdminControllerBase\" />
+    <Folder Include="Areas\Admin\Views\Default\" />
+    <Folder Include="Public\Admin\assets\file\upload\" />
+    <Folder Include="Public\Images\Blogs\" />
+    <Folder Include="Public\Images\Brands\" />
+    <Folder Include="Public\Images\HomeSlider\" />
+    <Folder Include="Public\Images\Logo\" />
+    <Folder Include="Public\Images\Others\" />
+    <Folder Include="Public\Images\OurTeams\" />
+    <Folder Include="Public\Images\Pages\" />
+    <Folder Include="Public\Images\Products\ProductSlider\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\AdminHome\AdminAccount.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminLogin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Advertising\AddAdvertising.cshtml" />
+    <Content Include="Areas\Admin\Views\Advertising\EditAdvertising.cshtml" />
+    <Content Include="Areas\Admin\Views\Advertising\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brands\AddBrands.cshtml" />
+    <Content Include="Areas\Admin\Views\Brands\EditBrands.cshtml" />
+    <Content Include="Areas\Admin\Views\Brands\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\AddCategories.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\CategoryImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\EditCategories.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\AddOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\OurTeams\AddTeams.cshtml" />
+    <Content Include="Areas\Admin\Views\OurTeams\EditTeams.cshtml" />
+    <Content Include="Areas\Admin\Views\OurTeams\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\AddPages.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\EditPages.cshtml" />
+    <Content Include="Areas\Admin\Views\Pages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductComments\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\AddProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\EditProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\ProductSlider.cshtml" />
+    <Content Include="Areas\Admin\Views\Rols\AddOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Rols\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SliderImages\HomeSlider.cshtml" />
+    <Content Include="Areas\Admin\Views\SliderImages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\AddOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Suppliers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Blog\AddBlog.cshtml" />
+    <Content Include="Areas\Admin\Views\Blog\EditBlogs.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterType\AddParameterType.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterType\EditParameterType.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterType\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterValue\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterValue\AddParameterValue.cshtml" />
+    <Content Include="Areas\Admin\Views\ParameterValue\EditParameterValue.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductParameters\AddProductParameters.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductParameters\EditProductParameters.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductParameters\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductParameters\ParameterTypeListWidget.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductParameters\ParameterValueListWidget.cshtml" />
+    <Content Include="Areas\Admin\Views\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <None Include="packages.config" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
+    <Content Include="Views\Home\Adds.cshtml" />
+    <Content Include="Views\Home\Brands.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Home\Collection.cshtml" />
+    <Content Include="Views\Home\CompleteShopping.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\ContactBestSellers.cshtml" />
+    <Content Include="Views\Home\ContactBrands.cshtml" />
+    <Content Include="Views\Home\Footer.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Home\Icons.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\MiniCartWidget.cshtml" />
+    <Content Include="Views\Home\NewProducts.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Shared\_FrontLayout.cshtml" />
+    <Content Include="Public\Admin\assets\ckeditor\CHANGES.md" />
+    <Content Include="Public\Admin\assets\ckeditor\LICENSE.md" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\scayt\README.md" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Public\Admin\assets\ckeditor\plugins\wsc\README.md" />
+    <Content Include="Public\Admin\assets\ckeditor\README.md" />
+    <Content Include="Public\Admin\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="Public\Admin\assets\ckeditor\skins\moono\readme.md" />
+    <Content Include="Public\Admin\assets\css\.DS_Store" />
+    <Content Include="Public\Admin\assets\css\js\.DS_Store" />
+    <Content Include="Public\Admin\assets\css\js\app.bundle.js.map" />
+    <Content Include="Public\Admin\assets\data\.DS_Store" />
+    <Content Include="Public\Admin\assets\data\autocomplete_countries.json" />
+    <Content Include="Public\Admin\assets\file\.DS_Store" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Icons.ttf" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Icons.woff" />
+    <Content Include="Public\Admin\assets\fonts\Material-Design-Icons.woff2" />
+    <Content Include="Public\Admin\assets\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Public\Admin\assets\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Public\Admin\assets\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Public\Admin\assets\fonts\slick.ttf" />
+    <Content Include="Public\Admin\assets\fonts\slick.woff" />
+    <Content Include="Public\Admin\assets\fonts\summernote.ttf" />
+    <Content Include="Public\Admin\assets\fonts\summernote.woff" />
+    <Content Include="Public\Admin\assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Public\Admin\assets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Public\Admin\assets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Public\Admin\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="Public\Admin\assets\img\.DS_Store" />
+    <Content Include="Public\Admin\assets\img\icons\.DS_Store" />
+    <Content Include="Public\Admin\assets\img\icons\cc\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\icons\flags\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\icons\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\logo\.DS_Store" />
+    <Content Include="Public\Admin\assets\img\photoSwipe\default-skin\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\photoSwipe\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\profiles\_DS_Store" />
+    <Content Include="Public\Admin\assets\img\profiles\_DS_Store%281%29" />
+    <Content Include="Public\Admin\assets\js\app.bundle.js.map" />
+    <Content Include="Public\Zeon\css\fonts\icomoon.eot" />
+    <Content Include="Public\Zeon\css\fonts\icomoon.ttf" />
+    <Content Include="Public\Zeon\css\fonts\icomoon.woff" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Views\ErrorPage\Index.cshtml" />
+    <Content Include="Views\ErrorPage\NotFound.cshtml" />
+    <Content Include="Views\Home\yandex_df8681b359789bad.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910211923248_lnitialCreate.resx">
+      <DependentUpon>201910211923248_lnitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910220610072_OrderDetails.resx">
+      <DependentUpon>201910220610072_OrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51493</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51493/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

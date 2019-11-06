@@ -1,0 +1,68 @@
+﻿@model ZeonEcommerce.ViewModel.AdminCategories
+@{
+    ViewBag.Title = "EditCategories";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var category = Model.Categories.Where(x=>x.CategoriesId== Model.CategoriesOne.SubCategoryID).FirstOrDefault();
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-md-10 " style="margin-left:110px">
+        <div class="card p-b-20 p-b-20">
+            <header class="card-heading ">
+                <h2 class="card-title">Kategoriyaya Düzəliş Et</h2>
+            </header>
+            <div class="card-body card-container">
+                <form action="@Url.Action("Editcategories","Categories")" method="post" class="form-horizantal">
+                    <input type="hidden" name="CategoriesId" value="@Model.CategoriesOne.CategoriesId" />
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Alt Kategoriya</label>
+                        <div class="col-md-10">
+                            <select class="select form-control" name="SubCategoryID">
+
+                                @if (@Model.CategoriesOne.SubCategoryID != 0)
+                                {
+                                    <option value="@Model.CategoriesOne.SubCategoryID" selected>@category.Name</option>
+                                    <option value="0">Əsas Kategoriya</option>
+                                }
+                                else
+                                {
+                                    <option value="0" selected>Əsas Kategoriya</option>
+                                }
+
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option value="@item.CategoriesId">@item.Name</option>
+                                }
+
+                                }
+
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="name" class="col-md-2 control-label">Adı</label>
+                        <div class="col-md-10">
+                            <input id="Name" type="text" class="form-control" value="@Model.CategoriesOne.Name" name="Name">
+                        </div>
+                    </div>
+                    <div class="form-group is-empty">
+                        <label for="inputEmail" class="col-md-2 control-label">Açıqlaması</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="Description" value="@Model.CategoriesOne.Description">
+                        </div>
+                    </div>
+
+                    <div class="form-group is-empty">
+
+                        <div class="col-md-10">
+                            <button type="submit" class="upload btn btn-primary ">Əlavə Et</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

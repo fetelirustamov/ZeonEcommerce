@@ -1,0 +1,23 @@
+﻿.header .search-form {
+    border-radius: 5px;
+    margin-top: 2px;
+    border: 2px solid #E1E1E1;
+}
+
+.header .search-input {
+    border: 0;
+    padding: 5px;
+    padding-left: 15px;
+    width: 75%;
+}
+
+.header .search-submit {
+    background-color: #E1E1E1;
+    padding: 6px;
+    float: right;
+}
+
+
+    .submenu > li > a:hover {
+        color: #FF6000;
+    }

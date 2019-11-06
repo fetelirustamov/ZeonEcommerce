@@ -1,0 +1,128 @@
+﻿@model IEnumerable<ZeonEcommerce.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="card card-data-tables customer-table-wrapper">
+            <header class="card-heading">
+                <h2 class="card-title">Məhsullar</h2>
+                <small class="dataTables_info"></small>
+                <ul class="card-actions icons right-top">
+                    <li id="deleteItems" style="display: none;">
+                        <span class="label label-info pull-left m-t-5 m-r-10 text-white"></span>
+                        <a href="javascript:void(0)" id="confirmDelete" data-toggle="tooltip" data-placement="top" data-original-title="Delete Product(s)">
+                            <i class="zmdi zmdi-delete"></i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="orderTable" class="mdl-data-table customer-table m-t-30" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th data-orderable="false" class="col-xs-1">
+                                    <span class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="" id="checkAll">
+                                            <span class="checkbox-material"></span>
+                                        </label>
+                                    </span>
+                                </th>
+                                <th class="col-xs-1">Adı</th>
+                                <th class="col-xs-1">Qiyməti</th>
+                                <th class="col-xs-1">Kategoriyası</th>
+                                <th class="col-xs-1">Slider Şəkli</th>
+                                <th class="col-xs-1">Xüsusiyyət</th>
+
+                                <th class="col-xs-1">Brendi</th>
+                                <th class="col-xs-1">Şəkil</th>
+                                <th class="col-xs-1">Stok</th>
+                                <th class="col-xs-1">İstifadeci</th>
+                                <th class="col-xs-1">Əməliyyatlar</th>
+                                <th data-orderable="false" class="col-xs-1"><a href="@Url.Action("AddProducts","Products")"><button class="btn btn-primary btn-fab  animate-fab"><i class="zmdi zmdi-plus"></i></button></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="checkbox-cell">
+                                        <span class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="" id="">
+                                                <span class="checkbox-material"></span>
+                                            </label>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="name block m-t-10 m-b-10">@item.Name</span>
+                                    </td>
+                                    <td>@item.Price </td>
+                                    <td>@item.Categories.Name </td>
+                                    <td><a href="@Url.Action("ProductSlider","Products",new { id=item.ProductsId})" style="font-size:17px;font-weight:bold"> + </a></td>
+                                    <td><a href="@Url.Action("AddProductParameters","ProductParameters",new { id=item.ProductsId})" style="font-size:17px;font-weight:bold"> + </a></td>
+                                    <td>@item.Brands.Name</td>
+                                    <td><img src="~/@item.Picture" style="width:50px;height:50px" alt="Alternate Text" /></td>
+                                    <td>
+                                        @if (@item.Stock != 0)
+                                        {
+                                            <button class="btn btn-success btn-xs">Anbarda Var</button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-danger btn-xs">Tükənib</button>
+                                        }
+                                    </td>
+                                    <td>@item.Suppliers.Name</td>
+                                    <td>
+                                        <a href="@Url.Action("EditProducts","Products",new { id=item.ProductsId})"><i class="zmdi zmdi-edit zmdi-hc-2x"></i></a>&nbsp; &nbsp; &nbsp;
+                                        <a href="@Url.Action("Delete","Products",new { id=item.ProductsId})"><i class="zmdi zmdi-delete  zmdi-hc-2x"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<script>
+        $(document).ready(function myfunction() {
+
+            $("form#AddPages").submit(function myfunction() {
+                var formData = new FormData();
+                var fileInput = document.getElementById("Picture").files[0];
+                //append some non-form data also
+                formData.append("Name", $("#Name").val());
+                formData.append("Title", $("#Title").val());
+                formData.append("PageContent", $("#Content").val());
+                formData.append("RowNo", $("#RowNo").val());
+                formData.append("Picture", fileInput);
+                $.ajax({
+                    type: "POST",
+                    url: "/api/Pages",
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    success: function () {
+                        window.location.href = '@Url.Action("Index","Pages")';
+                    },
+                    error: function () {
+
+                        alert("Xetaa");
+                    },
+                });
+            });
+        });
+
+
+    </script>*@

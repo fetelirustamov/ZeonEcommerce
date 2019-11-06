@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+    <div class="container">
+        <div class="error-404"style="padding-top:0px">
+            <h1 style="font-size:200px;top:30px">404</h1>
+            <form class="error-404-search" style="margin-top:0px;" action="@Url.Action("Products","Home")" method="get">
+                <input type="text" class="search-line" placeholder="Search" name="serch" />
+                <input type="submit" value="" class="search-button" />
+            </form>
+
+            <h1>Are you lost?</h1>
+            <h2>SORRY, the page you asked for couldn't be found.</h2>
+            <p>Please try using the search form below</p>
+
+        </div>
+    </div>
+
+
+

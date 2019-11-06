@@ -1,0 +1,158 @@
+﻿
+@model ZeonEcommerce.App_Classes.Cart
+
+<script>
+    $(document).ready(function myfunction() {
+        $(".RemoveProduct").click(function myfunction() {
+            var pId = $(this).attr("name");
+            $.ajax({
+                type: "GET",
+                url: "/Home/CartProductRemove",
+                data: { id: pId },
+                success: function myfunction() {
+                    $.ajax({
+                        type: "Get",
+                        url: "/Home/MiniCartWidget",
+                        success: function myfunction(data) {
+                            $(".cart-all").html("");
+                            $(".cart-all").html(data);
+                        }
+                    })
+                },
+                error: function myfunction() {
+                    //alert("Xəta oldu!");
+                }
+            });
+        });
+    });
+</script>
+
+
+
+@if (Session["CurrentUser"] != null)
+
+{
+
+
+    <div class="cart-all">
+        <i class="icon-19" title="Səbətim"></i>
+        @if ((int)ViewBag.Quantity != 0)
+        {
+            <span style="font-size:12px;">@ViewBag.TotalPrice</span>
+        }
+        else
+        {
+            <span>₼ 0</span>
+        }
+        <div class="inside-cart">
+            <p>
+
+                @if ((int)ViewBag.Quantity != 0)
+                {
+                    <span>Səbətdə Cəmi @ViewBag.Quantity Məhsul Var</span>
+
+                }
+                else
+                {
+                    <span>Səbətdə Cəmi 0 Məhsul Var</span>
+
+                }
+            </p>
+            <ul>
+                @if (ViewBag.Basket != null)
+                {
+
+                    foreach (ZeonEcommerce.Models.Basket item in ViewBag.Basket)
+                    {
+
+                        <li>
+                            <div class="inside-cart-image">
+                                @if (item.Products.Picture != null)
+                                {
+                                    <img src="~/@item.Products.Picture" alt="product name" />
+                                }
+                                else
+                                {
+                                    <img src="~/Public/Zeon/images/photos/image-9.jpg" alt="product name" />
+                                }
+
+                            </div>
+                            <button class="RemoveProduct" name="@item.ProductsID">x</button>
+
+                            <a href="/Home/ProductDetails/@item.Products.Name">@item.Products.Name</a>
+
+
+                            <p>Cəmi Qiymət @{ var TotalPrice = item.Products.Price * item.Quantity;} @TotalPrice.ToString("C2")</p>
+                            <p>Sayı: @item.Quantity</p>
+                        </li>
+
+                    }
+
+                    <li style="padding:15px 30px !important;min-height:0px !important;"><a href="@Url.Action("Cart","Home")" class="btn btn-primary">Səbətə Get</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+else
+
+{
+
+    <div class="cart-all">
+        <i class="icon-19" title="Səbətim"></i>
+        @if (Model != null)
+        {
+            <span style="font-size:12px;">@Model.TotalPrice.ToString("C2")</span>
+        }
+        else
+        {
+            <span>₼ 0</span>
+        }
+        <div class="inside-cart">
+            <p>
+
+                @if (Model != null)
+                {
+                    <span>Səbətdə Cəmi @Model.Products.Sum(x => x.Quantity) Məhsul Var</span>
+
+                }
+                else
+                {
+                    <span>Səbətdə Cəmi 0 Məhsul Var</span>
+
+                }
+            </p>
+            <ul>
+                @if (Model != null)
+                {
+                    foreach (var item in Model.Products)
+                    {
+                        <li>
+                            <div class="inside-cart-image">
+                                @if (item.Product.Picture != null)
+                                {
+                                    <img src="~/@item.Product.Picture" alt="product name" />
+                                }
+                                else
+                                {
+                                    <img src="~/Public/Zeon/images/photos/image-9.jpg" alt="product name" />
+                                }
+
+                            </div>
+                            <button class="RemoveProduct" name="@item.Product.ProductsId">x</button>
+
+                            <a href="/Home/ProductDetails/@item.Product.Name">@item.Product.Name</a>
+
+
+                            <p>Cəmi Qiymət @item.UnitPrice.ToString()</p>
+                            <p>Sayı: @item.Quantity</p>
+                        </li>
+
+                    }
+                    <li style="padding:15px 30px !important;min-height:0px !important;"><a href="@Url.Action("Cart","Home")" class="btn btn-primary">Səbətə Get</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+}

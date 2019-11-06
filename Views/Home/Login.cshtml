@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
+}
+
+
+<div class="container" style="background-color:#fff;border:1px solid #E5E5E5;box-shadow:2px;">
+    <div class="site-title" style="margin-top:10px">
+    <div style="margin:10px;">
+        <span>Daxil Olun / Qeydiyyatdan Keçin</span>
+        </div></div>
+    @if (TempData["ResultMessage"] != null)
+    {
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>@TempData["ResultMessage"]</h4>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="forms-separation">
+                <div class="login-form-box">
+                    <form action="@Url.Action("Login","Home")" method="post" class="login-form">
+                       
+                        @Html.AntiForgeryToken()
+
+                        <h3>Daxil Ol</h3>
+                        <p>Email</p>
+                        <input type="email" name="Email" class="login-line" required>
+                        <p>Şifrə</p>
+                        <input type="password" name="Password" class="login-line" required>
+                        <input type="submit" value="GirişEt" class="button-9">
+                        <a href="#" class="lost-password">Şifrəni Unutmusuz</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "register-form" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h3>Qeydiyyatdan Keçin</h3>
+                <p>Adınız</p>
+                <input type="text" name="Name" class="input-line" required>
+                <p>Email</p>
+                <input type="email" name="Email" class="input-line" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Şifrə</p>
+                        <input type="password" name="Password" class="input-line" required>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Təkrar Şifrə</p>
+                        <input type="password" name="repassword" class="input-line" required>
+                    </div>
+                </div>
+                <input type="submit" value="Qeydiyyatdan Keç" class="button-9">
+            }
+        </div>
+    </div>
+</div>
+
